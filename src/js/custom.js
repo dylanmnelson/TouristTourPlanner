@@ -39,4 +39,23 @@ function initialize() {
 	
 }
 
+$('.toMap').click(function() {
+	$('#panelForm').removeClass('active');
+	$('#panelForm').addClass('inactive');
+	$('#map').removeClass('inactive');
+	$('#map').addClass('active');
+	
+	//Resetting maps
+	var center = map.getCenter();
+	google.maps.event.trigger(map, 'resize');
+	map.setCenter(center);
+});
+
+$('.btnBackToForm').click(function() {
+	$('#panelForm').removeClass('inactive');
+	$('#panelForm').addClass('active');
+	$('#map').removeClass('active');
+	$('#map').addClass('inactive');
+});
+
 google.maps.event.addDomListener(window, 'load', initialize);

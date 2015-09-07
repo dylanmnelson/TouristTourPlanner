@@ -64,12 +64,13 @@
 				</div>
 			</nav>
 		</div><!--/.header-->
-		<div class="mapWrapper inactive">
+		<div class="mapWrapper inactive" id="map">
 			<div class="content">
 				<div id="map-canvas"></div>
+				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>  
 			</div>
 		</div>
-		<div class="rightPanel active">
+		<div class="rightPanel active" id="panelForm">
 			<div class="routeSearch">
 				<div class="form-group">
 					<input type="text" class="form-control" name="Start" id="start" placeholder="Where are you travelling from?"></input>
@@ -77,8 +78,8 @@
 				<div class="form-group">
 					<input type="text" class="form-control" name="End" id="end" placeholder="Where are you travelling to?"></input>
 				</div>
-				<div class="form-group" id="buttonRouteSearch">
-					<button type="submit"  class="btn btn-main btn-block" >Search</button>  
+				<div class="form-group">
+					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch">Search</button>  
 				</div>
 			</div>
 		</div>

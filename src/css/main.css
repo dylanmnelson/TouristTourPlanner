@@ -115,6 +115,13 @@ body {
 	bottom: 0;
 }
 
+.btnBackToForm {
+	display: none;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
 .rightPanel {
 	top: 50px;
 	right: 0;
@@ -147,6 +154,10 @@ body {
 	
 	.inactive {
 		display: none;
+	}
+	
+	.btnBackToForm {
+		display: inline;
 	}
 }
 /*** END MOBILE STYLES ***/
