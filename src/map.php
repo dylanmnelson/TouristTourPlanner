@@ -64,17 +64,22 @@
 				</div>
 			</nav>
 		</div><!--/.header-->
-		<div class="mapWrapper">
+		<div class="mapWrapper inactive">
 			<div class="content">
 				<div id="map-canvas"></div>
 			</div>
 		</div>
-		<div class="rightPanel">
-			<div class="form-group">
-				<input type="text" class="form-control" name="Start" id="start" placeholder="Where are you travelling from?"></input>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" name="End" id="end" placeholder="Where are you travelling to?"></input>
+		<div class="rightPanel active">
+			<div class="routeSearch">
+				<div class="form-group">
+					<input type="text" class="form-control" name="Start" id="start" placeholder="Where are you travelling from?"></input>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="End" id="end" placeholder="Where are you travelling to?"></input>
+				</div>
+				<div class="form-group" id="buttonRouteSearch">
+					<button type="submit"  class="btn btn-main btn-block" >Search</button>  
+				</div>
 			</div>
 		</div>
 		<!--END body html content-->

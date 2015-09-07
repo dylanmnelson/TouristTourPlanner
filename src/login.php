@@ -31,7 +31,7 @@ require_once('login-php.php');
 				<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password"></input>
 			</div>
 			<div class="form-group" id="buttonLogin">
-				<button type="submit"  class="btn btn-primary btn-block" >Login</button>  
+				<button type="submit"  class="btn btn-main btn-block" >Login</button>  
 			</div>
             </form>
 			<div class="form-group">

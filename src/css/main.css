@@ -28,6 +28,16 @@ body {
     font-size: 0.9em;
 }
 
+.btn-main {
+	background-color: #6767DA;
+	color: #FFFFFF;
+}
+
+.btn-main:hover, .btn-main:focus {
+	background-color: #5454D2;
+	color: #FFFFFF
+}
+
 /* START Navbar styles */
 .navbar {
 	background-color: #6767DA;
@@ -124,3 +134,19 @@ body {
 }
 
 /**** END OF MAP PAGE STYLES ***/
+/*** START MOBILE STYLES ***/
+@media (max-width: 768px) {
+	
+	.rightPanel, .mapWrapper {
+		width: 100%;
+	}
+	
+	.active {
+		display: block;
+	}
+	
+	.inactive {
+		display: none;
+	}
+}
+/*** END MOBILE STYLES ***/
