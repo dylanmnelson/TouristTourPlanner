@@ -67,11 +67,13 @@
 		<div class="mapWrapper inactive" id="map">
 			<div class="content">
 				<div id="map-canvas"></div>
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>  
+				<!-- Button for mobile navigation -->
+				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
 			</div>
 		</div>
 		<div class="rightPanel active" id="panelForm">
 			<div class="routeSearch">
+				<!-- Draw route between 2 places -->
 				<div class="form-group">
 					<input type="text" class="form-control" name="Start" id="start" placeholder="Where are you travelling from?"></input>
 				</div>
@@ -79,7 +81,27 @@
 					<input type="text" class="form-control" name="End" id="end" placeholder="Where are you travelling to?"></input>
 				</div>
 				<div class="form-group">
-					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch">Search</button>  
+					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch">Search</button>
+				</div>
+			</div>
+			<div class="filterSearch">
+				<!-- Filter by proximity search -->
+				<div class="form-group">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">Filter Nearby:</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Restaurants</a></li>
+							<li><a href="#">Hotels</a></li>
+							<li><a href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit"  class="btn btn-main btn-block toMap" id="btnFilterSearch">Filter</button>  
 				</div>
 			</div>
 		</div>
