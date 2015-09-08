@@ -7,7 +7,7 @@ require_once('login-php.php');
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sign in - Traveler</title>
+		<title>Sign in - Traveller</title>
         <meta name="description" content="">
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap -->

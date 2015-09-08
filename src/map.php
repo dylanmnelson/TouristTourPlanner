@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Map - Traveler</title>
+		<title>Map - Traveller</title>
         <meta name="description" content="">
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
@@ -29,7 +29,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Traveler</a>
+						<a class="navbar-brand" href="#">Traveller</a>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">

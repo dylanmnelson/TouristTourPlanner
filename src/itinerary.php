@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Itinerary - Traveler</title>
+		<title>Itinerary - Traveller</title>
         <meta name="description" content="">
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
@@ -29,12 +29,12 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Planner</a>
+						<a class="navbar-brand" href="#">Traveller</a>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
-							<li class="dropdown">
+							<li><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
+							<li class="dropdown active">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-map"></i>&nbsp;Itinerary <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="./itinerary.php">View</a></li>
