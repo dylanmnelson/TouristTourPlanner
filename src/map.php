@@ -87,19 +87,18 @@
 			<div class="filterSearch">
 				<!-- Filter by proximity search -->
 				<div class="form-group">
-					<div class="btn-group">
-						<button type="button" class="btn btn-default">Filter Nearby:</button>
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="caret"></span>
-							<span class="sr-only">Toggle Dropdown</span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Restaurants</a></li>
-							<li><a href="#">Hotels</a></li>
-							<li><a href="#">Something else here</a></li>
-						</ul>
-					</div>
-				</div>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-label="...">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter:<span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Restaurants</a></li>
+								<li><a href="#">Hotels</a></li>
+								<li><a href="#">Something else here</a></li>
+							</ul>
+						</div><!-- /btn-group -->
+					</div><!-- /input-group -->
+				</div><!-- /form-group -->
 				<div class="form-group">
 					<button type="submit"  class="btn btn-main btn-block toMap" id="btnFilterSearch">Filter</button>  
 				</div>
