@@ -64,14 +64,14 @@
 				</div>
 			</nav>
 		</div><!--/.header-->
-		<div class="mapWrapper inactive" id="map">
+		<div class="mapWrapper hideInactive" id="map">
 			<div class="content">
 				<div id="map-canvas"></div>
 				<!-- Button for mobile navigation -->
 				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
 			</div>
 		</div>
-		<div class="rightPanel active" id="panelForm">
+		<div class="rightPanel showActive" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
 				<div class="form-group">

@@ -148,11 +148,11 @@ body {
 		width: 100%;
 	}
 	
-	.active {
+	.showActive {
 		display: block;
 	}
 	
-	.inactive {
+	.hideInactive {
 		display: none;
 	}
 	

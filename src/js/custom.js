@@ -40,10 +40,10 @@ function initialize() {
 }
 
 $('.toMap').click(function() {
-	$('#panelForm').removeClass('active');
-	$('#panelForm').addClass('inactive');
-	$('#map').removeClass('inactive');
-	$('#map').addClass('active');
+	$('#panelForm').removeClass('showActive');
+	$('#panelForm').addClass('hideInactive');
+	$('#map').removeClass('hideInactive');
+	$('#map').addClass('showActive');
 	
 	//Resetting maps
 	var center = map.getCenter();
@@ -52,10 +52,10 @@ $('.toMap').click(function() {
 });
 
 $('.btnBackToForm').click(function() {
-	$('#panelForm').removeClass('inactive');
-	$('#panelForm').addClass('active');
-	$('#map').removeClass('active');
-	$('#map').addClass('inactive');
+	$('#panelForm').removeClass('hideInactive');
+	$('#panelForm').addClass('showActive');
+	$('#map').removeClass('showActive');
+	$('#map').addClass('hideInactive');
 });
 
 google.maps.event.addDomListener(window, 'load', initialize);
