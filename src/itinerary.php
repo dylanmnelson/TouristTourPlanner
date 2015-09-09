@@ -1,13 +1,14 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Itinerary - Traveler</title>
+		<title>Itinerary - Traveller</title>
         <meta name="description" content="">
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,12 +32,12 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Planner</a>
+						<a class="navbar-brand" href="#">Traveller</a>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
-							<li class="dropdown">
+							<li><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
+							<li class="dropdown active">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-map"></i>&nbsp;Itinerary <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="./itinerary.php">View</a></li>
@@ -49,23 +50,26 @@
 								</ul>
 							</li>
 						</ul>
-						<ul class="nav navbar-nav navbar-right">
+												
+							<?php if (isset($_SESSION["firstname"])){
+                            echo '<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;<?php
-			if (isset($_SESSION["firstname"])){
-echo "Hi: ".$_SESSION["firstname"];}
-			?>
-             <span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;';
+                                
+echo "Hi: ".$_SESSION["firstname"];
+		echo	'<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">View Profile</a></li>
 									<li><a href="#">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
 									<li><a href="#">Settings</a></li>
-								</ul>
+																	</ul>
+							
 							</li>
 							<li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
-						</ul>
+							</ul>';
+			} ?>
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav>
