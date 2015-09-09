@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $dbuser = "arholt";
 $dbpass = "sit203"; 
 $db = "SSID";
@@ -23,6 +24,7 @@ if($UserName!=NULL)
 		if($UserName == $UserNameCheck)
 		{
 			$usernameCorrect=true;
+			$FirstName =oci_result($stsm, 'FIRSTNAME');
 		}
 			
 	}
@@ -46,10 +48,12 @@ if($Password!=NULL &&$usernameCorrect==true)
 		}
 			
 		else
+		
 		{
-			session_register("USERNAME");
- session_register("PASSWORD"); 
- header("location:map.php");
+			
+		$_SESSION["username"] = $UserName;
+		$_SESSION["firstname"] = $FirstName;
+ 		header("location:map.php");
  
 
 		}
