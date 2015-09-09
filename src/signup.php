@@ -7,7 +7,7 @@ require_once('createAccountPhp.php');
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sign up - Traveller</title>
+		<title>Sign up - Traveler</title>
         <meta name="description" content="">
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap -->
@@ -25,7 +25,7 @@ require_once('createAccountPhp.php');
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<!--START body html content-->
-		<h1 class="heading">Create a Traveller Account</h1>
+		<h1 class="heading">Create a Traveler Account</h1>
 		<div class="center-block formSignUp" class="">
             <form name="register" method="Post"action="?">
 				<!--First row-->
@@ -75,7 +75,7 @@ require_once('createAccountPhp.php');
 					<div class="col-sm-6 formSignUpLeft">
 						<div class="form-group" id="groupPassword">
 							<label for="signUpPassword">Password:</label>
-							<input type="text" class="form-control" id="signUpPassword" placeholder="Password" name="Password" onblur="ValidatePassword(this.value)"></input>
+							<input type="password" class="form-control" id="signUpPassword" placeholder="Password" name="Password" onblur="ValidatePassword(this.value)"></input>
 							<span id = "PasswordError" class = "errorMessage"></span>
 						</div>
 					</div>
@@ -84,19 +84,19 @@ require_once('createAccountPhp.php');
 					<div class="col-sm-6 formSignUpRight">
 						<div class="form-group" id="groupUsername">
 							<label for="signUpUsername">Retype Password:</label>
-							<input type="text" class="form-control" id="signUpPassword" placeholder="Retype Password"></input>
+							<input type="password" class="form-control" id="signUpPassword"  name="PasswordMatch" placeholder="Retype Password"></input>
 						</div>
 					</div>
 					<!--End right column -->
 					<div class="form-group" id="groupCreateAccountButton">
 						<button class="btn btn-success btn-block" type="submit">Create Account</button>
 					</div>
-					<div class="form-group">
-						<a href="login.php" id="linkSignup"><span>Already have an account? Click here to login!</span></a>
-					</div>
 				</div>
 				<!--End third row-->
             </form>
+			<div class="form-group">
+				<a href="login.php" id="linkSignup"><span>Already have an account? Click here to login!</span></a>
+			</div>
 		</div>
 		
 		
