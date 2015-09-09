@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $dbuser = "arholt";
 $dbpass = "sit203"; 
 $db = "SSID";
@@ -73,11 +74,27 @@ else
 
 	if (preg_match($pattern,$Password))
 		{
-			$PassValid=true;
+			
+			if($PasswordMatch!=Null)
+				{
+					if ($Password == $PasswordMatch)
+					{
+						$PassValid=true;
+					}
+					else 
+					{
+						echo"<script type='text/javascript'>alert(\"Invalid input - Passwords do not match\");</script>";
+						$PassValid =false;
+					}
+				}
+				else echo"<script type='text/javascript'>alert(\"Invalid input -  Retype password  can not be left blank\");</script>";
 		}
 		else echo"<script type='text/javascript'>alert(\"Invalid input - Password was not input correctly\");</script>";
 	}
 	else echo"<script type='text/javascript'>alert(\"Invalid input - Password cannot be left blank\");</script>";
+	
+
+	
 
 	// *******************Validate data entered***********************
 	if($Email!=Null)
@@ -112,7 +129,10 @@ else
    		oci_bind_by_name($stmt, ":Email", $Email);    
 
  		oci_execute($stmt);
- 		echo "<script type='text/javascript'>alert(\"Account registered.\");</script>";
+		$_SESSION["username"] = $UserName;
+		$_SESSION["firstname"] = $FirstName;
+ 		header("location:map.php");
+ 
 	}
 }
  ?>

@@ -1,10 +1,13 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Map - Traveller</title>
+		<title>Map - Traveler</title>
         <meta name="description" content="">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -31,7 +34,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Traveller</a>
+						<a class="navbar-brand" href="#">Traveler</a>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -51,7 +54,10 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;Hi, Dylan <span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;<?php
+			if (isset($_SESSION["firstname"])){
+echo "Hi: ".$_SESSION["firstname"];}
+			?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">View Profile</a></li>
 									<li><a href="#">Saved Routes</a></li>
@@ -60,20 +66,23 @@
 									<li><a href="#">Settings</a></li>
 								</ul>
 							</li>
-							<li><a href="#"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
-						</ul>
+                            <?php
+			if (isset($_SESSION["firstname"])){
+echo '<li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>'; }
+?>
+						</ul> 
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav>
 		</div><!--/.header-->
-		<div class="mapWrapper hideInactive" id="map">
+		<div class="mapWrapper inactive" id="map">
 			<div class="content">
 				<div id="map-canvas"></div>
 				<!-- Button for mobile navigation -->
 				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
 			</div>
 		</div>
-		<div class="rightPanel showActive" id="panelForm">
+		<div class="rightPanel active" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
 				<div class="form-group">
@@ -89,18 +98,19 @@
 			<div class="filterSearch">
 				<!-- Filter by proximity search -->
 				<div class="form-group">
-					<div class="input-group">
-						<input type="text" class="form-control" aria-label="...">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter:<span class="caret"></span></button>
-							<ul class="dropdown-menu dropdown-menu-right">
-								<li><a href="#">Restaurants</a></li>
-								<li><a href="#">Hotels</a></li>
-								<li><a href="#">Something else here</a></li>
-							</ul>
-						</div><!-- /btn-group -->
-					</div><!-- /input-group -->
-				</div><!-- /form-group -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">Filter Nearby:</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Restaurants</a></li>
+							<li><a href="#">Hotels</a></li>
+							<li><a href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
 				<div class="form-group">
 					<button type="submit"  class="btn btn-main btn-block toMap" id="btnFilterSearch">Filter</button>  
 				</div>
