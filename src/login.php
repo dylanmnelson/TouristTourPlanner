@@ -9,6 +9,8 @@ require_once('login-php.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sign in - Traveller</title>
         <meta name="description" content="">
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">

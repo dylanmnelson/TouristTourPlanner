@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Map - Traveller</title>
         <meta name="description" content="">
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
