@@ -18,6 +18,7 @@ session_start();
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
+		<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
 	<body>
@@ -86,26 +87,36 @@ echo "Hi: ".$_SESSION["firstname"];
 			</div>
 		</div>
 		<div class="rightPanel showActive" id="panelForm">
-			<div class="routeSearch">
-				<!-- Draw route between 2 places -->
-				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-						<input class="form-control" size="13" type="text" value="" id="start" name="start" placeholder="Start Time" readonly>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-					</div>
-					<input type="hidden" id="dtp_input1" value="" /><br/>
-				</div>
-				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-						<input class="form-control" size="13" type="text" value="" id="end" name="end" placeholder="End Time" readonly>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-					</div>
-					<input type="hidden" id="dtp_input2" value="" /><br/>
-				<div class="form-group">
-					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch" onclick="javascrtpt:window.location.href='itinerary.php'">Let's Go</button>
-				</div>
+			<div class="constant">
+				<div class="ui-droppable ui-sortable" id="dropzone">
+				  
+				  <div class="drop-item">
+					<details>
+						<summary><h4>Melbourne Star</h4></summary>
+						<div>
+							<label>Spending Time</label>
+								<input type="text">
+						</div>
+					</details>
+					<button type="button" class="btn btn-default btn-xs remove">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				  </div>
+				  
+				  <div class="drop-item">
+					<details>
+						<summary><h4>Southern Cross</h4></summary>
+						<div>
+							<label>Spending Time</label>
+								<input type="text">
+						</div>
+					</details>
+					<button type="button" class="btn btn-default btn-xs remove">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				  </div>
+	  
+	  
 				</div>
 			</div>
 		</div>
@@ -113,11 +124,12 @@ echo "Hi: ".$_SESSION["firstname"];
 		<!--jQuery with offline backup if needed-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+		<script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
 		
-		
+		<script src="js/index.js"></script>
 		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>

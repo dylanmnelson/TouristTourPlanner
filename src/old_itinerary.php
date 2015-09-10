@@ -1,32 +1,27 @@
-<?php 
-session_start();
- ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Map - Traveller</title>
+		<title>Map - Traveler</title>
         <meta name="description" content="">
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
 		<meta name="description" content="Inspiration for drag and drop interactions for the modern UI" />
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
 		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
 		<script src="js/modernizr.custom.js"></script>
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-	</head>
+    </head>
 	<body>
 		<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -60,58 +55,41 @@ session_start();
 								</ul>
 							</li>
 						</ul>
-						
-							<?php if (isset($_SESSION["firstname"])){
-                            echo '<ul class="nav navbar-nav navbar-right">
+						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;';
-                                
-echo "Hi: ".$_SESSION["firstname"];
-		echo	'<span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;Hi, Dylan <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">View Profile</a></li>
 									<li><a href="#">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
 									<li><a href="#">Settings</a></li>
-																	</ul>
-							
+								</ul>
 							</li>
-							<li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
-							</ul>';
-			} ?>
-						
+							<li><a href="#"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
+						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav>
 		</div><!--/.header-->
-		<div class="mapWrapper hideInactive" id="map">
+		<div class="mapWrapper">
 			<div class="content">
 				<div id="map-canvas"></div>
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
 			</div>
 		</div>
-		<div class="newRightPanel showActive" id="panelForm">
-	
-		
+		<div class="rightPanel">
+			<div class="container">
 			
 			
+			<div class="content">
 				<header class="codrops-header">
 					<h1>Melbourne<span>Create your unique itinerary</span></h1>
-					<div class="col-lg-12">
-							<div class="input-group">
-							  <input type="text" class="form-control" placeholder="Search Place">
-							  <span class="input-group-btn">
-								<button class="btn btn-default" type="button">Search</button>
-							  </span>
-							</div><!-- /input-group -->
-					</div><!-- /.col-lg-12 -->
 					<nav class="codrops-demos">
 						<a class="current-demo" href="">Attraction</a>
 						<a href="">Activities</a>
 						<a href="">Restaurant</a>
 						<a href="">Hotel</a>
+						<a href="">Favorite</a>
 					</nav>
 				</header>
 				<div id="grid" class="grid clearfix">
@@ -123,27 +101,24 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
 				</div>
 				<section class="codrops-top clearfix">
-					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
 					</br>
-					<div><span class="center"><a href="" class="animate" ><span><h5>Finish</h5></span></a></span></div>
+					<div><span class="center"><a href="" class="animate" ><span>Finish</span></a></span></div>
 				</section>
-				
-		
-				<div id="drop-area" class="drop-area">
-					<div class="drop-area__content"><h6>This is one of the most interesting attraction in Melbourne area.</h6>
-					
-						<div class="drop-area__item"><div class="dummy"><h5>Morning<h5></div></div>
-						<div class="drop-area__item"><div class="dummy"><h5>Noon<h5></div></div>
-						<div class="drop-area__item"><div class="dummy"><h5>Afternoon<h5></div></div>
-						<div class="drop-area__item"><div class="dummy"><h5>Evening<h5></div></div>
-						
-					</div>
-					
-					
-				</div>
-			
+				</div><!-- /content -->
+			</div><!-- /container -->
+		<div id="drop-area" class="drop-area">
+			<div>
+				<div class="drop-area__item"><div class="dummy"><h4>Morning<h4></div></div>
+				<div class="drop-area__item"><div class="dummy"><h4>Noon<h4></div></div>
+				<div class="drop-area__item"><div class="dummy"><h4>Afternoon<h4></div></div>
+				<div class="drop-area__item"><div class="dummy"><h4>Evening<h4></div></div>
+			</div>
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -208,11 +183,5 @@ echo "Hi: ".$_SESSION["firstname"];
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
-		
 	</body>
 </html>

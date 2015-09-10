@@ -1,6 +1,6 @@
-html, body, #map-canvas {
+html, body,#map-canvas {
 	height: 100%;
-	/*font-family: Roboto;*/  /* added by shang */
+	/*font-family: Roboto;*/ 
 	margin: 0px;
 	padding: 0px;
 }
@@ -115,6 +115,7 @@ body {
 	right: 300px;
 	position: absolute;
 	bottom: 0;
+	z-index:-1;
 }
 
 .btnBackToForm {
@@ -131,6 +132,18 @@ body {
 	bottom: 0;
 	width: 300px;
 	padding: 20px 20px 0px;
+	z-index: 99;
+}
+.newRightPanel {
+	top: 30px;
+	right: 5px;
+	position: absolute;
+	bottom: 0px;
+	width: 300px;
+	padding: 10px 10px 0px 0px;
+	z-index: 99;
+	height:100%;
+	text-align: center;
 }
 
 .content {
@@ -142,11 +155,12 @@ body {
 	right: 0;
 }
 
+
 /**** END OF MAP PAGE STYLES ***/
 /*** START MOBILE STYLES ***/
 @media (max-width: 768px) {
 	
-	.rightPanel, .mapWrapper {
+	.rightPanel, .mapWrapper , .newRightpanel{
 		width: 100%;
 	}
 	
