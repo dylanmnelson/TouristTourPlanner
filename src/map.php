@@ -17,6 +17,7 @@ session_start();
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
@@ -120,10 +121,10 @@ echo "Hi: ".$_SESSION["firstname"];
 		
 		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
 		<script type="text/javascript">
 			$('.form_datetime').datetimepicker({
-				//language:  'fr',
+				language:  'en',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,
@@ -133,7 +134,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				showMeridian: 1
 			});
 			$('.form_date').datetimepicker({
-				language:  'fr',
+				language:  'en',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,
@@ -143,7 +144,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				forceParse: 0
 			});
 			$('.form_time').datetimepicker({
-				language:  'fr',
+				language:  'en',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,

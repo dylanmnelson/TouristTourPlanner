@@ -127,7 +127,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
 					</br>
-					<div><span class="center"><a href="" class="animate" ><span><h5>Finish</h5></span></a></span></div>
+					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
 		

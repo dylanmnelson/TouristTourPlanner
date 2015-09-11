@@ -14,12 +14,17 @@ session_start();
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--time picker-->
+		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+		<!--jquerymobile for slider-->
+	
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -87,65 +92,184 @@ echo "Hi: ".$_SESSION["firstname"];
 			</div>
 		</div>
 		<div class="rightPanel showActive" id="panelForm">
-			<div class="constant">
-				<div class="ui-droppable ui-sortable" id="dropzone">
-				  
-				  <div class="drop-item">
-					<details>
-						<summary><h4>Melbourne Star</h4></summary>
-						<div>
-							<label>Spending Time</label>
-								<input type="text">
+			<div class="container">
+			<div class="content">
+			
+				<table class="table">
+					<thead>
+					  <tr>
+						<th>Yes/No</th>
+						<th>Place</th>
+						<th>Time</th>
+					  </tr>
+					</thead>
+					<tbody>
+					<tr>
+					<td></td>
+					<td><h4>Morning</h4></td>
+					<td></td>
+					</tr>
+					<tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>Melbroune Botanic Garden
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
 						</div>
-					</details>
-					<button type="button" class="btn btn-default btn-xs remove">
-						<span class="glyphicon glyphicon-trash"></span>
-					</button>
-				  </div>
-				  
-				  <div class="drop-item">
-					<details>
-						<summary><h4>Southern Cross</h4></summary>
-						<div>
-							<label>Spending Time</label>
-								<input type="text">
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" onchange="range4.value=value">
+								<output id="range4">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr>
+					  <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>Melbroune Star
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
 						</div>
-					</details>
-					<button type="button" class="btn btn-default btn-xs remove">
-						<span class="glyphicon glyphicon-trash"></span>
-					</button>
-				  </div>
-	  
-	  
-				</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" onchange="range1.value=value">
+								<output id="range1">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr>
+					  <tr>
+					<td></td>
+					<td><h4>Noon</h4></td>
+					<td></td>
+					</tr>
+					  <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>Southern Cross
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
+						</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" onchange="range2.value=value">
+								<output id="range2">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr>
+					   <tr>
+					<td></td>
+					<td><h4>Afternoon</h4></td>
+					<td></td>
+					</tr>
+					  <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>Melbroune Zoo
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
+						</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" onchange="range3.value=value">
+								<output id="range3">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr>
+					   <tr>
+					<td></td>
+					<td><h4>Evening</h4></td>
+					<td></td>
+					</tr>
+					  <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>Best Western Atlantis Hotel
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
+						</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" onchange="range5.value=value">
+								<output id="range5">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr>
+					 
+					</tbody>
+				  </table>
 			</div>
+		</div>
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
+		 
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
-		
-		<script src="js/index.js"></script>
-		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+		
 		<script type="text/javascript">
-			$('.form_datetime').datetimepicker({
-				//language:  'fr',
-				weekStart: 1,
-				todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				forceParse: 0,
-				showMeridian: 1
-			});
 			$('.form_date').datetimepicker({
-				language:  'fr',
+				language:  'en',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,
@@ -155,7 +279,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				forceParse: 0
 			});
 			$('.form_time').datetimepicker({
-				language:  'fr',
+				language:  'en',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,
@@ -165,6 +289,9 @@ echo "Hi: ".$_SESSION["firstname"];
 				maxView: 1,
 				forceParse: 0
 			});
-		</script>           
+		</script>
+	
+		
+
 	</body>
 </html>
