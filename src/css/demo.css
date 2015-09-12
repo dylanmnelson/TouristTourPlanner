@@ -20,7 +20,6 @@ body {
 	color: #fff;
 	font-weight: 400;
 	font-size: 1em;
-	font-family: 'Raleway', Arial, sans-serif;
 }
 
 a {
@@ -58,7 +57,6 @@ a:hover, a:focus {
 .skin-6 a:hover, .skin-6 a:focus { color: #474843; }
 
 .content {
-	max-width: 1290px;
 	margin: 0 auto;
 	text-align: center;
 	-webkit-touch-callout: none;
