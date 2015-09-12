@@ -91,7 +91,7 @@ require_once('createAccountPhp.php');
 					</div>
 					<!--End right column -->
 					<div class="form-group" id="groupCreateAccountButton">
-						<button class="btn btn-success btn-block" type="submit">Create Account</button>
+						<button class="btn btn-main btn-block" type="submit">Create Account</button>
 					</div>
 					<div class="form-group">
 						<a href="login.php" id="linkSignup"><span>Already have an account? Click here to login!</span></a>
