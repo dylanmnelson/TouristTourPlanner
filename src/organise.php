@@ -50,12 +50,8 @@ session_start();
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-map"></i>&nbsp;Itinerary <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="./itinerary.php">View</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
 									<li role="separator" class="divider"></li>
-									<li class="dropdown-header">Nav header</li>
-									<li><a href="#">Separated link</a></li>
-									<li><a href="#">One more separated link</a></li>
+									<li><a href="./organise.php">Organise</a></li>
 								</ul>
 							</li>
 						</ul>
