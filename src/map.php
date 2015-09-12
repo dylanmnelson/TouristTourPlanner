@@ -116,7 +116,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		
 		
 		
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 
 		<script type="text/javascript">
 			$('.form_datetime').datetimepicker({
