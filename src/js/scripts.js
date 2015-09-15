@@ -14,6 +14,10 @@ function initialize() {
     center: new google.maps.LatLng(-37.8136, 144.9631),
     zoom: 12
   };
+  
+  
+ 
+
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
 
