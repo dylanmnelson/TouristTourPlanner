@@ -86,12 +86,9 @@ echo "Hi: ".$_SESSION["firstname"];
 			</nav>
 		</div><!--/.header-->
 		<div class="mapWrapper hideInactive" id="map">
-			<div class="content">
-				<div id="map-canvas"></div>
 				<!-- Button for mobile navigation -->
 				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
-			</div>
-		</div>
+				</div>
 		<div class="newRightPanel showActive" id="panelForm">
 	
 		
@@ -100,9 +97,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				<header class="codrops-header">
 					<h1>Melbourne<span>Create your unique itinerary</span></h1>
 					<div class="col-lg-12">
-							
-							<input id="pac-input" class="controls" type="text" placeholder="Search Place">
-							
+						<input id="pac-input" class="controls" type="text" placeholder="Search Place">
 					</div><!-- /.col-lg-12 -->
 					<nav class="codrops-demos">
 						<a class="current-demo" href="">Attraction</a>
@@ -219,7 +214,7 @@ echo "Hi: ".$_SESSION["firstname"];
 			  // Create the search box and link it to the UI element.
 			  var input = document.getElementById('pac-input');
 			  var searchBox = new google.maps.places.SearchBox(input);
-			  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+			
 
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
@@ -278,8 +273,8 @@ echo "Hi: ".$_SESSION["firstname"];
     </script>
 
 		
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA7G5kHO5xiV6bRcQoo1iqDhVc03axjAc&libraries=places&callback=initAutocomplete" async defer></script>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
+
 		<script type="text/javascript" src="js/custom.js"></script>
 		
 		

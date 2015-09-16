@@ -86,7 +86,7 @@ echo "Hi: ".$_SESSION["firstname"];
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
 				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 						<input class="form-control" size="13" type="text" value="" id="start" name="start" placeholder="Start Time" readonly>
 						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -94,7 +94,7 @@ echo "Hi: ".$_SESSION["firstname"];
 					<input type="hidden" id="dtp_input1" value="" /><br/>
 				</div>
 				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 						<input class="form-control" size="13" type="text" value="" id="end" name="end" placeholder="End Time" readonly>
 						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
