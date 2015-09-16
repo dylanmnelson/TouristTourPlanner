@@ -39,6 +39,9 @@ function initialize() {
 	
 }
 
+/**
+ * Function to show the map panel and hide the form panel on mobile.
+ */
 $('.toMap').click(function() {
 	$('#panelForm').removeClass('showActive');
 	$('#panelForm').addClass('hideInactive');
@@ -51,6 +54,9 @@ $('.toMap').click(function() {
 	map.setCenter(center);
 });
 
+/**
+ * Function to show the form panel and hide the map panel on mobile.
+ */
 $('.btnBackToForm').click(function() {
 	$('#panelForm').removeClass('hideInactive');
 	$('#panelForm').addClass('showActive');

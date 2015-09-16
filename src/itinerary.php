@@ -20,11 +20,8 @@ session_start();
         <link rel="stylesheet" href="css/main.css">
 		<meta name="description" content="Inspiration for drag and drop interactions for the modern UI" />
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
-		<meta name="author" content="Codrops" />
-		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
-		<script src="js/modernizr.custom.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
 	<body>
@@ -198,8 +195,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
-		
-		 <script>
+		<script>
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
@@ -270,17 +266,12 @@ echo "Hi: ".$_SESSION["firstname"];
 			}
 
 
-    </script>
-
-		
+		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
-
+		<!-- Custom js -->
 		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 		
 	</body>
 </html>
