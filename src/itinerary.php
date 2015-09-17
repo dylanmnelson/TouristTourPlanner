@@ -30,6 +30,7 @@ session_start();
         <![endif]-->
 		<!--START body html content-->
 		<div class="header">
+			<!-- Navbar, pinned to top -->
 			<nav class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
 					<div class="navbar-header">
@@ -72,11 +73,15 @@ echo "Hi: ".$_SESSION["firstname"];
 							</li>
 							<li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
 							</ul>';
+			} else {
+				echo '<ul class="nav navbar-nav navbar-right">';
+				echo '<li><a href="login.php"><i class="fa fa-fw fa-sign-in"></i>&nbsp;Log In</a></li>';
+				echo '</ul>';
 			} ?>
 						
 					</div><!--/.nav-collapse -->
 				</div>
-			</nav>
+			</nav><!-- /navbar -->
 		</div><!--/.header-->
 		<div class="mapWrapper hideInactive" id="map">
 				<!-- Button for mobile navigation -->
