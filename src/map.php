@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once('createTrip.php');
  ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -90,6 +91,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
+                <form name = "mapPage" method="post"action="?">
 				<div class="form-group">
 					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 						<input class="form-control" size="13" type="text" value="" id="start" name="start" placeholder="Start Time" readonly>
@@ -105,11 +107,16 @@ echo "Hi: ".$_SESSION["firstname"];
 						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 					</div>
 					<input type="hidden" id="dtp_input2" value="" /><br/>
-				<div class="form-group">
+                    <?php if (isset($_SESSION["username"])){
+                 echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
+				 } 
+				 ?>
+				<div class="form-group"> 
 					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch" onclick="javascrtpt:window.location.href='itinerary.php'">Let's Go</button>
 				</div>
 				</div>
 			</div>
+            </form>
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
