@@ -7,7 +7,7 @@ session_start();
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Map - Traveller</title>
+		<title>Itinerary - Traveller</title>
         <meta name="description" content="">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -67,7 +67,7 @@ echo "Hi: ".$_SESSION["firstname"];
 									<li><a href="#">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
-									<li><a href="#">Settings</a></li>
+									<li><a href="settings.php">Settings</a></li>
 																	</ul>
 							
 							</li>

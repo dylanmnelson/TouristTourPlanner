@@ -109,9 +109,18 @@ body {
 	font-family: Roboto;  /* added by shang */
 }
 
+/* Padding for the navbar */
+
+.mapWrapper, .contentWrapper {
+	top: 50px;
+}
+
+.contentWrapper {
+	position: relative;
+}
+
 .mapWrapper {
 	left: 0;
-	top: 50px;
 	right: 300px;
 	position: absolute;
 	bottom: 0;

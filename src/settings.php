@@ -8,7 +8,7 @@ require_once('createTrip.php');
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Map - Traveller</title>
+		<title>Account Settings - Traveller</title>
         <meta name="description" content="">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -81,87 +81,18 @@ echo "Hi: ".$_SESSION["firstname"];
 				</div>
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
-		<div class="mapWrapper hideInactive" id="map">
-			<div class="content">
-				<div id="map-canvas"></div>
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
-			</div>
+		<!-- Settings page html starts here -->
+		<div class="contentWrapper">
+			<h1 class="heading">Change Your Email Address</h1>
+			<h1 class="heading">Change Your Password</h1>
+			<h1 class="heading">Delete Your Account</h1>
 		</div>
-		<div class="rightPanel showActive" id="panelForm">
-			<div class="routeSearch">
-				<!-- Draw route between 2 places -->
-                <form name = "mapPage" method="post"action="?">
-				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-						<input class="form-control" size="13" type="text" value="" id="start" name="start" placeholder="Start Time" readonly>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-					</div>
-					<input type="hidden" id="dtp_input1" value="" /><br/>
-				</div>
-				<div class="form-group">
-					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-						<input class="form-control" size="13" type="text" value="" id="end" name="end" placeholder="End Time" readonly>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-					</div>
-					<input type="hidden" id="dtp_input2" value="" /><br/>
-                    <?php if (isset($_SESSION["username"])){
-                 echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
-				 } 
-				 ?>
-				<div class="form-group"> 
-					<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch" onclick="javascrtpt:window.location.href='itinerary.php'">Let's Go</button>
-				</div>
-				</div>
-			</div>
-            </form>
-		</div>
+		<!-- /End settings page html -->
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-
-		<script type="text/javascript">
-			$('.form_datetime').datetimepicker({
-				language:  'en',
-				weekStart: 1,
-				todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				forceParse: 0,
-				showMeridian: 1
-			});
-			$('.form_date').datetimepicker({
-				language:  'en',
-				weekStart: 1,
-				todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				minView: 2,
-				forceParse: 0
-			});
-			$('.form_time').datetimepicker({
-				language:  'en',
-				weekStart: 1,
-				todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 1,
-				minView: 0,
-				maxView: 1,
-				forceParse: 0
-			});
-		</script>           
+		<script type="text/javascript" src="js/custom.js"></script>           
 	</body>
 </html>
