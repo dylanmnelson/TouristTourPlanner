@@ -41,6 +41,7 @@ body {
 /* START Navbar styles */
 .navbar {
 	background-color: #6767DA;
+	font-size: 14px;
 }
 
 /* Navbar desktop tabs */
