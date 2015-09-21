@@ -105,14 +105,13 @@ echo "Hi: ".$_SESSION["firstname"];
 					</nav>
 				</header>
 				<div id="grid" class="grid clearfix">
-					<div class="grid__item"><i class="fa fa-fw fa-image"><img src="img/Melbourne-Skyline.jpg"></img></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"><img src="img/melbourne.jpg"></img></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item" id="div1"><i class="fa fa-fw fa-image"><img src="img/Melbourne-Skyline.jpg"></img></i></div>
+					<div class="grid__item" id="div2"><i class="fa fa-fw fa-image"><img src="img/melbourne.jpg"></img></i></div>
+					<div class="grid__item" id="div3"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item" id="div4"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item" id="div5"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item" id="div6"><i class="fa fa-fw fa-image"></i></div>
+					<div class="grid__item" id="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img"></img></i></div>
 				</div>
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
@@ -122,7 +121,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				
 		
 				<div id="drop-area" class="drop-area">
-					<div class="drop-area__content"><h6>This is one of the most interesting attraction in Melbourne area.</h6>
+					<div class="drop-area__content"><h6>Drag and Drop the item into the Box</h6>
 					
 						<div class="drop-area__item"><div class="dummy"><h5>Morning<h5></div></div>
 						<div class="drop-area__item"><div class="dummy"><h5>Noon<h5></div></div>
@@ -196,6 +195,13 @@ echo "Hi: ".$_SESSION["firstname"];
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
+		
+	
+		
+
+		
+			 
+		
 		<script>
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
@@ -211,7 +217,7 @@ echo "Hi: ".$_SESSION["firstname"];
 			  // Create the search box and link it to the UI element.
 			  var input = document.getElementById('pac-input');
 			  var searchBox = new google.maps.places.SearchBox(input);
-			
+			 
 
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
@@ -219,12 +225,22 @@ echo "Hi: ".$_SESSION["firstname"];
 			  });
 
 			  var markers = [];
+			  
+			  
+			  
 			  // [START region_getplaces]
 			  // Listen for the event fired when the user selects a prediction and retrieve
-			  // more details for that place.
-			  searchBox.addListener('places_changed', function() {
-				var places = searchBox.getPlaces();
+			  // more details for that place. 
+			  
+		
 
+			  
+			  
+			  searchBox.addListener('places_changed', function() {
+				  
+				var places = searchBox.getPlaces();
+				
+				
 				if (places.length == 0) {
 				  return;
 				}
@@ -246,13 +262,50 @@ echo "Hi: ".$_SESSION["firstname"];
 					scaledSize: new google.maps.Size(25, 25)
 				  };
 
+				  var photos = place.photos;
+					if (!photos) {
+					return;
+					}
+					document.getElementById("search_img").src=photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
+				  
 				  // Create a marker for each place.
-				  markers.push(new google.maps.Marker({
-					map: map,
-					icon: icon,
+				  var itinerary_marker = new google.maps.Marker({
+					map: map,					
 					title: place.name,
-					position: place.geometry.location
-				  }));
+					position: place.geometry.location,
+					icon: photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})
+			        });
+					
+				  markers.push(itinerary_marker);
+				  
+				  
+				  
+				   var contentString = '<div id="content">'+
+					  '<h1 id="firstHeading" class="firstHeading">'+place.name+'</h1>'+
+					  '<div id="bodyContent">'+
+					  '<div>'+'<h4>'+place.formatted_address+'</h4>'+'</div>'+
+					  '<div>'+'<img src="'+photos[1].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+photos[2].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'</div>'+
+					  '<p><b>'+place.name+'</b> rating &#40;from 1 to 5 &#41; is <b>'+place.rating+'</b></p>'+
+					  '<p><b>'+place.reviews[0].author_name+' </b>"'+place.reviews[0].text+'"<b>Rating '+place.reviews[0].rating+' Star</b></p>'+
+					  '<p><b>'+place.reviews[1].author_name+' </b>"'+place.reviews[1].text+'"<b>Rating '+place.reviews[1].rating+' Star</b></p>'+
+					  '<p><b>'+place.reviews[2].author_name+' </b>"'+place.reviews[2].text+'"<b>Rating '+place.reviews[2].rating+' Star</b></p>'+
+					  '<p>'+place.international_phone_number+'</p>'+ 
+					  '<p><a href='+place.website+' target="blank">'+''+place.website+'</a> '+'</p>'+
+					  '</div>'+
+					  '</div>';
+
+			
+					  var infowindow = new google.maps.InfoWindow({
+						content: contentString,
+						maxWidth: 800
+					  });
+
+				   
+				  google.maps.event.addListener(itinerary_marker, 'click', function() {
+					infowindow.open(map, this);
+					});
+
+				  	
 
 				  if (place.geometry.viewport) {
 					// Only geocodes have viewport.
@@ -262,6 +315,23 @@ echo "Hi: ".$_SESSION["firstname"];
 				  }
 				});
 				map.fitBounds(bounds);
+				//Display and hide drag and drop item
+						if (places.length == 0) {
+						  return;
+						}else{
+												
+							 
+							document.getElementById("div1").style.display="none";
+							document.getElementById("div2").style.display="none";
+							document.getElementById("div3").style.display="none";
+							document.getElementById("div4").style.display="none";
+							document.getElementById("div5").style.display="none";
+							document.getElementById("div6").style.display="none";		
+		
+							document.getElementById("search_div").style.display = "block";
+							
+							}													
+						
 			  });
 			  // [END region_getplaces]
 			}

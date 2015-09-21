@@ -29,7 +29,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #fff;
+	color: #ADB4E9;
 }
 
 .skin-1 { background: #ccd1d5; color: #fff; }
@@ -190,6 +190,13 @@ text-decoration: none;
 	padding: 0.5em 0 0.3em;
 	max-width: 300px;
 	text-align: left;
+}
+
+.gm-style .gm-style-iw {
+    font-weight: 300;
+    font-size: 14px;
+    overflow: hidden;
+    color: #000;
 }
 
 @media screen and (max-width: 27em) {

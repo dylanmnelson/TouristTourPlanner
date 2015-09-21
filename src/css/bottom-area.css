@@ -16,6 +16,8 @@
 	color: #76737C;
 	text-align: center;
 	position:relative;
+	margin-left: auto;
+	margin-right: auto;
 }
 .grid__item img {
   display: inline-block;
@@ -42,6 +44,8 @@
 	cursor: grabbing;
 	
 }
+
+
 
 .is-dragging {
 	background: #4e4c52;
