@@ -8,7 +8,11 @@ var start;
 var end;
 var mode;
 var transit_flag=false;
-	
+
+/*
+ * Function to initialise the map, and set the start and end point
+ * fields
+ */
 function initialize() {
 	var mapOptions = {
 		center: new google.maps.LatLng(-37.8136, 144.9631),

@@ -32,14 +32,26 @@ module.exports = function(grunt) {
 				src: '<%= project.js %>/custom.js',
 				dest: '<%= project.js %>/custom.min.js'
 			}
+		},
+		
+		watch: {
+			css: {
+				files: ['<%= project.css %>/main.css'],
+				tasks: ['cssmin']
+			},
+			js: {
+				files: ['<%= project.js %>/custom.js'],
+				tasks: ['uglify']
+			}
 		}
 	});
 
 	// Load the required plugins.
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	
 	// Default task(s).
-	grunt.registerTask('default', ['cssmin','uglify']);
+	grunt.registerTask('default', ['cssmin','uglify','watch']);
 
 };
