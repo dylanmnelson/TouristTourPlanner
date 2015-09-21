@@ -61,7 +61,7 @@ require_once('createTrip.php');
 echo "Hi: ".$_SESSION["firstname"];
 		echo	'<span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">View Profile</a></li>
+									<li><a href="favourites.php">View Favourites</a></li>
 									<li><a href="#">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
