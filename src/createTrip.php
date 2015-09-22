@@ -141,29 +141,21 @@ else
 				else if($AmPm =="pm" && $sAmPm == "am")
 		{
 		$strSQL="INSERT INTO TP_Trip VALUES (tripID_seq.nextval, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI AM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI PM'))";
-		}
-		
-		
-		//added by shang for testing
-		echo "<br> <br><br> <br><br> <br> <br>first sql:".$strSQL."<br><br>";
-		
+		}				
 		$stmt = oci_parse($connect,$strSQL);
-
  		oci_execute($stmt);
 		
 		$strSQL="INSERT INTO TP_CustomerTrip VALUES(customerTripID_seq.nextval,:username, tripID_seq.currval)";
-		
-		//added by shang for testing
-		echo "second sql:".$strSQL."<br><br>";
-		
+
 		$stmt = oci_parse($connect,$strSQL);
 		oci_bind_by_name($stmt, ":username", $UserName);
 
  		oci_execute($stmt);
 		
-
-
- 		//header("location:itinerary.php");
+		$_SESSION['tripID'] = "set";
+ 		header("location:itinerary.php");
+		
 	}
+	
  ?>
  
