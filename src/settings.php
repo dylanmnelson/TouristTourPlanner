@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('createTrip.php');
+
  ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -84,6 +84,8 @@ echo "Hi: ".$_SESSION["firstname"];
 		<!-- Settings page html starts here -->
 		<div class="contentWrapper">
 			<h1 class="heading">Change Your Email Address</h1>
+			<div class="form-group" id="groupPassword">
+			<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password to confirm"></input>
 			<h1 class="heading">Change Your Password</h1>
 			<h1 class="heading">Delete Your Account</h1>
 		</div>

@@ -177,6 +177,12 @@ echo "Hi: ".$_SESSION["firstname"];
 								classie.remove( dropArea, 'show' );
 								// remove class 'drag-active' from body
 								classie.remove( body, 'drag-active' );
+								// take dropped item and put it into database 
+								<?php if (isset($_SESSION["tripID"])) 
+								{
+									require(addItinerary.php);
+								} ?>
+								
 							};
 
 							if( !wasDropped ) {
