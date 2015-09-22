@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 		// Project info.
 		project: {
 			src: 'src',
+			app: 'dist',
 			css: '<%= project.src %>/css',
 			js: '<%= project.src %>/js'
 		},
@@ -34,6 +35,23 @@ module.exports = function(grunt) {
 			}
 		},
 		
+		// clean the build directory
+		clean: {
+			build: {
+				src: [ '<%= project.app %>' ]
+			},
+		},
+		
+		// copy from the source directory to build
+		copy: {
+			build: {
+				cwd: '<%= project.src %>/',
+				src: ['**/*'],
+				dest: '<%= project.app %>',
+				expand: true
+			}
+		},
+		
 		watch: {
 			css: {
 				files: ['<%= project.css %>/main.css'],
@@ -47,11 +65,13 @@ module.exports = function(grunt) {
 	});
 
 	// Load the required plugins.
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
 	// Default task(s).
 	grunt.registerTask('default', ['cssmin','uglify','watch']);
-
+	grunt.registerTask('build', ['clean','copy']);
 };

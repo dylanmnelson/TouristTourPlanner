@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+require_once('createTrip.php');
  ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -8,7 +8,7 @@ session_start();
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Account Settings - Traveller</title>
+		<title>Favourites - Traveller</title>
         <meta name="description" content="">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -81,15 +81,9 @@ echo "Hi: ".$_SESSION["firstname"];
 				</div>
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
-		<!-- Settings page html starts here -->
-		<div class="contentWrapper">
-			<h1 class="heading">Change Your Email Address</h1>
-			<div class="form-group" id="groupPassword">
-			<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password to confirm"></input>
-			<h1 class="heading">Change Your Password</h1>
-			<h1 class="heading">Delete Your Account</h1>
-		</div>
-		<!-- /End settings page html -->
+		<!-- Favourites page html starts here -->
+		
+		<!-- /End favourites page html -->
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
