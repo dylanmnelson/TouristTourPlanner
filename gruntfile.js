@@ -8,8 +8,14 @@ module.exports = function(grunt) {
 		project: {
 			src: 'src',
 			app: 'dist',
-			css: '<%= project.src %>/css',
-			js: '<%= project.src %>/js'
+			css: {
+				src: '<%= project.src %>/css',
+				app: '<%= project.app %>/css'
+			},
+			js: {
+				src: '<%= project.src %>/js',
+				app: '<%= project.app %>/js'
+			}
 		},
 		
 		/**
@@ -18,8 +24,8 @@ module.exports = function(grunt) {
 		 */
 		cssmin: {
 			css: {
-				src: '<%= project.css %>/main.css',
-				dest: '<%= project.css %>/main.min.css'
+				src: '<%= project.css.src %>/main.css',
+				dest: '<%= project.css.app %>/main.min.css'
 			}
 		},
 		
@@ -30,8 +36,8 @@ module.exports = function(grunt) {
 		 */
 		uglify: {
 			custom: {
-				src: '<%= project.js %>/custom.js',
-				dest: '<%= project.js %>/custom.min.js'
+				src: '<%= project.js.src %>/custom.js',
+				dest: '<%= project.js.app %>/custom.min.js'
 			}
 		},
 		
@@ -46,7 +52,7 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				cwd: '<%= project.src %>/',
-				src: ['**/*'],
+				src: ['**/*','!css/main.css','!js/custom.js'],
 				dest: '<%= project.app %>',
 				expand: true
 			}
@@ -73,5 +79,5 @@ module.exports = function(grunt) {
 	
 	// Default task(s).
 	grunt.registerTask('default', ['cssmin','uglify','watch']);
-	grunt.registerTask('build', ['clean','copy']);
+	grunt.registerTask('build', ['clean','copy','cssmin','uglify']);
 };
