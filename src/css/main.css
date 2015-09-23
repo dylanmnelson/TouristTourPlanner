@@ -71,11 +71,11 @@ body {
 	color: #6767DA;
 }
 
-.formLogin, .formSignUp {
+.formLogin, .formSignUp, .formChangeEmail {
 	max-width: 500px;
 }
 
-.formLogin div, .formSignUp #groupCreateAccountButton {
+.formLogin div, .formSignUp #groupCreateAccountButton, .formChangeEmail div{
 	margin-left: 15px;
 	margin-right: 15px;
 }
@@ -89,7 +89,7 @@ body {
 	width: 100%
 }
 
-.formLogin a span, .formSignUp a span {
+.formLogin a span, .formSignUp a span, .formChangeEmail span {
 	display: table-cell;
 	text-align: center;
 }
