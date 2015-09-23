@@ -112,12 +112,11 @@ if (!$connect)
  $query= "SELECT * FROM TP_Accounts WHERE UserName='$UserName'" ;
 	//WHERE UserName='$UserName'"
 	$stsm = oci_parse($connect, $query);
-	echo $query."<BR> <BR>";
+	
 	oci_execute($stsm);
 	while(oci_fetch($stsm))
 	{
 	$email = oci_result($stsm, "EMAIL");
-	echo $email;
 	}
  
 				 echo "<p> You have recently changed your email address, the new email address is:  ".$email." </p>";}
