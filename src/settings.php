@@ -20,6 +20,7 @@ session_start();
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="ValidateEmail.js" type="text/javascript" ></script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -88,7 +89,9 @@ echo "Hi: ".$_SESSION["firstname"];
         <br>
         <br>
         <br>
+        <div class="center-block formChangeEmail">
         <form action="updateEmail.php" method="post">
+
 			<h1 class="heading">Change Your Email Address</h1>
             <!-- if there has been a recent change to the email address the user should be notified -->
 			<?php if($_SESSION[emailChange]=="yes")
@@ -106,28 +109,36 @@ if (!$connect)
  {
  $UserName = $_SESSION["username"];
  }
- $query= "SELECT Email FROM TP_Accounts WHERE UserName='$UserName'" ;
+ $query= "SELECT * FROM TP_Accounts WHERE UserName='$UserName'" ;
 	//WHERE UserName='$UserName'"
 	$stsm = oci_parse($connect, $query);
+	echo $query."<BR> <BR>";
 	oci_execute($stsm);
-	$email = OCIResult($query, 5);
+	while(oci_fetch($stsm))
+	{
+	$email = oci_result($stsm, "EMAIL");
+	echo $email;
+	}
  
 				 echo "<p> You have recently changed your email address, the new email address is:  ".$email." </p>";}
 				?>
+                <div class="form-group" id="groupEmailChange">
             							<label for="changeEmailAddress"> New Email Address:</label>
 							<input type="text" class="form-control" id="signUpEmailAddress" placeholder="Email Address" name="Email"onblur = "ValidateEmail(this.value)"></input>
 							<span id = "EmailError" class = "errorMessage"></span>
                             <label for="password">Enter Password:</label>
+                            </div>
 			<div class="form-group" id="groupPassword">
 			<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password to confirm"></input>
-            </div>
+     
             <br>
             <button class="btn btn-main btn-block" type="submit">Update</button>
             </form>
+            </div>
 			<h1 class="heading">Change Your Password</h1>
             
 			<h1 class="heading">Delete Your Account</h1>
-            
+           </div> 
 		</div>
 		<!-- /End settings page html -->
 		<!--END body html content-->
