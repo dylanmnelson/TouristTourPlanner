@@ -104,6 +104,9 @@ echo "Hi: ".$_SESSION["firstname"];
 						<a href="">Hotel</a>
 					</nav>
 				</header>
+				<!-- Button for mobile navigation -->
+				<button type="submit" class="btn btn-main toMap">Go to Map</button>
+				<!-- Grid of place results. -->
 				<div id="grid" class="grid clearfix">
 					<div class="grid__item" id="div1"><i class="fa fa-fw fa-image"><img src="img/Melbourne-Skyline.jpg"></img></i></div>
 					<div class="grid__item" id="div2"><i class="fa fa-fw fa-image"><img src="img/melbourne.jpg"></img></i></div>
@@ -119,7 +122,6 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
-		
 				<div id="drop-area" class="drop-area">
 					<div class="drop-area__content"><h6>Drag and Drop the item into the Box</h6>
 					
