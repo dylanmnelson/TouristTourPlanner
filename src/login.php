@@ -24,18 +24,19 @@ require_once('login-php.php');
 		<!--START body html content-->
 		<h1 class="heading">Sign in to Traveller</h1>
 		<div class="center-block formLogin">
-			<div class="form-group" id="groupUsername">
-            <form  method="post" action="?">
-				<!--<label for="username">Username:</label>-->
-				<input type="text" class="form-control" name="UserName" id="username" placeholder="Enter your Username"></input>
-			</div>
-			<div class="form-group" id="groupPassword">
-				<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password"></input>
-			</div>
-			<div class="form-group" id="buttonLogin">
-				<button type="submit"  class="btn btn-main btn-block" >Login</button>  
-			</div>
-            </form>
+			<!-- Login form. -->
+			<form  method="post" action="?">
+				<div class="form-group" id="groupUsername">
+					<input type="text" class="form-control" name="UserName" id="username" placeholder="Enter your Username"></input>
+				</div>
+				<div class="form-group" id="groupPassword">
+					<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password"></input>
+				</div>
+				<div class="form-group" id="buttonLogin">
+					<button type="submit"  class="btn btn-main btn-block" >Login</button>
+				</div>
+			</form>
+			<!-- /END login form. -->
 			<div class="form-group">
 				<a href="signup.php" id="linkSignup"><span>Don't have an account yet? Click here to create one!</span></a>
 			</div>
