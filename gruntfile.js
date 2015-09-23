@@ -60,11 +60,11 @@ module.exports = function(grunt) {
 		
 		watch: {
 			css: {
-				files: ['<%= project.css %>/main.css'],
+				files: ['<%= project.css.src %>/main.css'],
 				tasks: ['cssmin']
 			},
 			js: {
-				files: ['<%= project.js %>/custom.js'],
+				files: ['<%= project.js.src %>/custom.js'],
 				tasks: ['uglify']
 			}
 		}
