@@ -83,12 +83,6 @@ echo "Hi: ".$_SESSION["firstname"];
 		</div><!--/.header-->
 		<!-- Settings page html starts here -->
 		<div class="contentWrapper">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <div class="center-block formChangeEmail">
         <form action="updateEmail.php" method="post">
 
@@ -135,6 +129,10 @@ if (!$connect)
             </form>
             <form action="updatePassword.php" method="post">
 			<h1 class="heading">Change Your Password</h1>
+            <?php if($_SESSION[passwordChange]=="yes")
+			{
+				echo "<P> You have recently changed your password</p>";
+			}?>
             <div class="form-group" id="groupPassword">
              <label for="password">Enter current Password:</label>
 			<input type="password" class="form-control" name="PasswordC" id="passwordC" placeholder="Enter your Password to confirm"></input>
