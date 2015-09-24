@@ -125,17 +125,24 @@ if (!$connect)
             							<label for="changeEmailAddress"> New Email Address:</label>
 							<input type="text" class="form-control" id="signUpEmailAddress" placeholder="Email Address" name="Email"onblur = "ValidateEmail(this.value)"></input>
 							<span id = "EmailError" class = "errorMessage"></span>
-                            <label for="password">Enter Password:</label>
-                            </div>
+                            </div>                          
 			<div class="form-group" id="groupPassword">
+             <label for="password">Enter Password:</label>
 			<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password to confirm"></input>
-     
+     </div>
             <br>
             <button class="btn btn-main btn-block" type="submit">Update</button>
             </form>
-            </div>
-			<h1 class="heading">Change Your Password</h1>
             
+            <form action="updatePassword.php" method="post">
+			<h1 class="heading">Change Your Password</h1>
+            <div class="form-group" id="groupPassword">
+             <label for="password">Enter current Password:</label>
+			<input type="password" class="form-control" name="PasswordC" id="passwordC" placeholder="Enter your Password to confirm"></input>
+             <label for="password">Enter new Password:</label>
+            <div class="form-group" id="groupPassword">
+			<input type="password" class="form-control" name="PasswordN" id="passwordN" placeholder="Enter your Password to confirm"></input>
+            </form>
 			<h1 class="heading">Delete Your Account</h1>
            </div> 
 		</div>
