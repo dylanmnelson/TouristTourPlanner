@@ -139,9 +139,11 @@ if (!$connect)
             <div class="form-group" id="groupPassword">
              <label for="password">Enter current Password:</label>
 			<input type="password" class="form-control" name="PasswordC" id="passwordC" placeholder="Enter your Password to confirm"></input>
+            </div>
              <label for="password">Enter new Password:</label>
             <div class="form-group" id="groupPassword">
 			<input type="password" class="form-control" name="PasswordN" id="passwordN" placeholder="Enter your Password to confirm"></input>
+            </div>
             </form>
 			<h1 class="heading">Delete Your Account</h1>
            </div> 
