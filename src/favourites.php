@@ -82,7 +82,8 @@ echo "Hi: ".$_SESSION["firstname"];
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
 		<!-- Favourites page html starts here -->
-		
+		<h1> Saved Favourites </h1>
+        
 		<!-- /End favourites page html -->
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
