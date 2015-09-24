@@ -131,19 +131,19 @@ if (!$connect)
 			<input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password to confirm"></input>
      </div>
             <br>
-            <button class="btn btn-main btn-block" type="submit">Update</button>
+            <button class="btn btn-main btn-block" type="submit">Update email</button>
             </form>
-            
             <form action="updatePassword.php" method="post">
 			<h1 class="heading">Change Your Password</h1>
             <div class="form-group" id="groupPassword">
              <label for="password">Enter current Password:</label>
 			<input type="password" class="form-control" name="PasswordC" id="passwordC" placeholder="Enter your Password to confirm"></input>
             </div>
-             <label for="password">Enter new Password:</label>
             <div class="form-group" id="groupPassword">
+             <label for="password">Enter new Password:</label>
 			<input type="password" class="form-control" name="PasswordN" id="passwordN" placeholder="Enter your Password to confirm"></input>
             </div>
+            <button class="btn btn-main btn-block" type="submit">Update password</button>
             </form>
 			<h1 class="heading">Delete Your Account</h1>
            </div> 
