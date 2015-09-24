@@ -6,17 +6,18 @@ require_once('createAccountPhp.php');
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sign up - Traveller</title>
-        <meta name="description" content="">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="ValidateFirstName.js" type="text/javascript" ></script>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="ValidateFirstName.js" type="text/javascript" ></script>
 		<script src="ValidateLastName.js" type="text/javascript" ></script>
 		<script src="ValidateEmail.js" type="text/javascript" ></script>
 		<script src="ValidateUserName.js" type="text/javascript" ></script>

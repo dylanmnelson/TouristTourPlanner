@@ -9,7 +9,8 @@ require_once('createTrip.php');
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Map - Traveller</title>
-        <meta name="description" content="">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
@@ -52,14 +53,13 @@ require_once('createTrip.php');
 								</ul>
 							</li>
 						</ul>
-						
+						<!-- Show the username, settings and favourites buttons for logged in users. -->
 							<?php if (isset($_SESSION["firstname"])){
-                            echo '<ul class="nav navbar-nav navbar-right">
+									echo '<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;';
-                                
-echo "Hi: ".$_SESSION["firstname"];
-		echo	'<span class="caret"></span></a>
+							echo "Hi: ".$_SESSION["firstname"];
+							echo '<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="favourites.php">View Favourites</a></li>
 									<li><a href="#">Saved Routes</a></li>
@@ -76,7 +76,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				echo '<li><a href="login.php"><i class="fa fa-fw fa-sign-in"></i>&nbsp;Log In</a></li>';
 				echo '</ul>';
 			} ?>
-						
+						<!-- /END logged in users menu. -->
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav><!-- /navbar -->
@@ -127,12 +127,10 @@ echo "Hi: ".$_SESSION["firstname"];
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-
+		
+		<!-- Custom JS -->
+		<script type="text/javascript" src="js/custom.js"></script>
 		<script type="text/javascript">
 			$('.form_datetime').datetimepicker({
 				language:  'en',

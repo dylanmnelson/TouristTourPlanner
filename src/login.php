@@ -8,7 +8,8 @@ require_once('login-php.php');
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sign in - Traveller</title>
-        <meta name="description" content="">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
