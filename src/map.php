@@ -9,12 +9,8 @@ require_once('createTrip.php');
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Map - Traveller</title>
-<<<<<<< HEAD
         <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
-=======
-        <meta name="description" content="">
->>>>>>> origin/master
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
@@ -57,31 +53,20 @@ require_once('createTrip.php');
 								</ul>
 							</li>
 						</ul>
-						
-<<<<<<< HEAD
 						<!-- Show the username, settings and favourites buttons for logged in users. -->
-=======
->>>>>>> origin/master
 							<?php if (isset($_SESSION["firstname"])){
                             echo '<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i>&nbsp;';
-<<<<<<< HEAD
-                                echo "Hi: ".$_SESSION["firstname"];
-								echo	'<span class="caret"></span></a>
-=======
-                                
-echo "Hi: ".$_SESSION["firstname"];
-		echo	'<span class="caret"></span></a>
->>>>>>> origin/master
-								<ul class="dropdown-menu">
+							echo "Hi: ".$_SESSION["firstname"];
+							echo	'<span class="caret"></span></a>
+									<ul class="dropdown-menu">
 									<li><a href="favourites.php">View Favourites</a></li>
 									<li><a href="#">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
 									<li><a href="settings.php">Settings</a></li>
 																	</ul>
-							
 							</li>
 							<li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Log Out</a></li>
 							</ul>';
@@ -90,12 +75,6 @@ echo "Hi: ".$_SESSION["firstname"];
 				echo '<li><a href="login.php"><i class="fa fa-fw fa-sign-in"></i>&nbsp;Log In</a></li>';
 				echo '</ul>';
 			} ?>
-<<<<<<< HEAD
-						echo "Hi: ".$_SESSION["firstname"];
-							echo '<span class="caret"></span></a>
-=======
-						
->>>>>>> origin/master
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav><!-- /navbar -->
