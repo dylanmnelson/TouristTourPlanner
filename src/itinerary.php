@@ -8,8 +8,7 @@ session_start();
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Itinerary - Traveller</title>
-        <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
-		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
+        <meta name="description" content="">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
@@ -105,9 +104,6 @@ echo "Hi: ".$_SESSION["firstname"];
 						<a href="">Favorite</a>
 					</nav>
 				</header>
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main toMap">Go to Map</button>
-				<!-- Grid of place results. -->
 				<div id="grid" class="grid clearfix">
 					<div class="grid__item" id="div1"><i class="fa fa-fw fa-image"><img src="img/Melbourne-Skyline.jpg"></img></i></div>
 					<div class="grid__item" id="div2"><i class="fa fa-fw fa-image"><img src="img/melbourne.jpg"></img></i></div>
@@ -116,7 +112,15 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div class="grid__item" id="div5"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="div6"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="search_div1" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img1" name="search_img"></img></i></div>
+<<<<<<< HEAD
 					
+=======
+					<div class="grid__item" id="search_div2" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img2" name="search_img"></img></i></div>
+					<div class="grid__item" id="search_div3" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img3" name="search_img"></img></i></div>
+					<div class="grid__item" id="search_div4" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img4" name="search_img"></img></i></div>
+					<div class="grid__item" id="search_div5" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img5" name="search_img"></img></i></div>
+					<div class="grid__item" id="search_div6" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img6" name="search_img"></img></i></div>
+>>>>>>> origin/master
 					
 								
 				</div>
@@ -237,9 +241,16 @@ echo "Hi: ".$_SESSION["firstname"];
 
 			 var service = new google.maps.places.PlacesService(map);
 			 
+<<<<<<< HEAD
 			
 			 
 			
+=======
+			 var counter=0;
+			 var photoUrl= new Array();
+			 var searchImg = document.getElementsByName("search_img");  
+			 var searchDiv = document.getElementsByName("search_div");  
+>>>>>>> origin/master
 
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
@@ -299,7 +310,11 @@ echo "Hi: ".$_SESSION["firstname"];
 					icon: photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})
 			        });
 					
+<<<<<<< HEAD
 					
+=======
+					photoUrl[counter]=photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
+>>>>>>> origin/master
 				var contentString='';
 					var infowindow = new google.maps.InfoWindow({
 						content: contentString,
@@ -316,6 +331,7 @@ echo "Hi: ".$_SESSION["firstname"];
 							console.error(status);
 							return;
 						  }
+<<<<<<< HEAD
 						  photoUrl=result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
 						  var placeDetailPhotoUrl=new Array();
 						  var i=0;
@@ -349,6 +365,14 @@ echo "Hi: ".$_SESSION["firstname"];
 						  '<img src="'+placeDetailPhotoUrl[3]+'" alt="" />'+
 						  '<img src="'+placeDetailPhotoUrl[4]+'" alt="" />'+
 						  '</div>'+
+=======
+						  
+						   contentString = '<div id="content">'+
+						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
+						  '<div id="bodyContent">'+
+						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
+						  '<div>'+'<img src="'+result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[1].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[2].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[3].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[4].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'</div>'+
+>>>>>>> origin/master
 						  '<p><b>'+result.name+'</b> rating &#40;from 1 to 5 &#41; is <b>'+result.rating+'</b></p>'+
 						  '<p><b>'+result.reviews[0].author_name+' </b>"'+result.reviews[0].text+'"<b>Rating '+result.reviews[0].rating+' Star</b></p>'+
 						  '<p><b>'+result.reviews[1].author_name+' </b>"'+result.reviews[1].text+'"<b>Rating '+result.reviews[1].rating+' Star</b></p>'+
@@ -382,14 +406,41 @@ echo "Hi: ".$_SESSION["firstname"];
 				  } else {
 					bounds.extend(place.geometry.location);
 				  }
+<<<<<<< HEAD
 				  	
+=======
+				  if (places.length == 0) {
+						  return;
+						}else{
+							counter++;
+							}					
+>>>>>>> origin/master
 				  
 				});
 				
 				
+<<<<<<< HEAD
 							
 							
 							
+=======
+							document.getElementById("div1").style.display="none";
+							document.getElementById("div2").style.display="none";
+							document.getElementById("div3").style.display="none";
+							document.getElementById("div4").style.display="none";
+							document.getElementById("div5").style.display="none";
+							document.getElementById("div6").style.display="none";		
+							
+							for(var i=0;counter;i++){
+							if(i<5){
+								searchImg[i+1].src=photoUrl[i];
+								searchDiv[i+1].style.display = "block";								
+								}else{
+									break;
+								}
+							}
+				
+>>>>>>> origin/master
 				
 				
 				
