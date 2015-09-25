@@ -112,7 +112,7 @@ require_once('createTrip.php');
 					 } 
 					 ?>
 						<div class="form-group"> 
-							<button type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch" onclick="javascrtpt:window.location.href='itinerary.php'">Let's Go</button>
+							<button type="submit"  class="btn btn-main btn-block" id="btnRouteSearch" onclick="javascrtpt:window.location.href='itinerary.php'">Let's Go</button>
 						</div>
 					</div>
 				</form>
