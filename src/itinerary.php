@@ -8,7 +8,8 @@ session_start();
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Itinerary - Traveller</title>
-        <meta name="description" content="">
+        <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
@@ -17,8 +18,7 @@ session_start();
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
-        <link rel="stylesheet" href="css/main.css">
-		<meta name="description" content="Inspiration for drag and drop interactions for the modern UI" />
+		<link rel="stylesheet" href="css/main.css">
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
