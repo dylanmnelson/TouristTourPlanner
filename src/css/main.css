@@ -65,14 +65,14 @@ body {
 /* END navbar styles */
 
 /**** END OF COMMON STYLES ***/
-/**** START OF LOGIN PAGE STYLES ***/
+/**** START OF LOGIN / SIGNUP PAGE STYLES ***/
 .heading {
 	text-align: center;
 	color: #6767DA;
 }
 
 .formLogin, .formSignUp, .formChangeEmail {
-	max-width: 500px;
+	max-width: 800px;
 }
 
 .formLogin div, .formSignUp #groupCreateAccountButton, .formChangeEmail div{
@@ -94,7 +94,21 @@ body {
 	text-align: center;
 }
 
-/**** END OF LOGIN PAGE STYLES ***/
+.left .imageLogo {
+	margin-top: 15px;
+}
+
+.left .imageLogo img {
+	width: 100%;
+}
+
+.left .infoPoints ul {
+	margin-top: 40px;
+	font-size: 24px;
+	color: #6767DA;
+}
+
+/**** END OF LOGIN / SIGNUP PAGE STYLES ***/
 /**** START OF MAP PAGE STYLES ***/
 
 /* Padding for the navbar */
@@ -231,8 +245,22 @@ body {
 	.dropdown-header {
 		color: #000000;
 	}
+	
+	.left .imageLogo img {
+		width: 300px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 /*** END MOBILE STYLES ***/
+/*** START TABLET STYLES ***/
+@media (max-width: 1230px) {
+	.left .infoPoints ul {
+		font-size: 16px;
+	}
+}
+/*** END TABLET STYLES ***/
 
 /*** start range slider style***/
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
