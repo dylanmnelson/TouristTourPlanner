@@ -6,7 +6,7 @@ session_start();
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Itinerary - Traveller</title>
         <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
@@ -19,6 +19,7 @@ session_start();
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
+		<meta name="description" content="Inspiration for drag and drop interactions for the modern UI" />
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
@@ -98,10 +99,10 @@ echo "Hi: ".$_SESSION["firstname"];
 						<input id="pac-input" class="controls" type="text" placeholder="Search Place">
 					</div><!-- /.col-lg-12 -->
 					<nav class="codrops-demos">
-						<a class="current-demo" href="">Attraction</a>
-						<a href="">Activities</a>
+						<a class="current-demo" href="">Attraction</a>						
 						<a href="">Restaurant</a>
 						<a href="">Hotel</a>
+						<a href="">Favorite</a>
 					</nav>
 				</header>
 				<!-- Button for mobile navigation -->
@@ -114,7 +115,10 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div class="grid__item" id="div4"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="div5"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="div6"><i class="fa fa-fw fa-image"></i></div>
-					<div class="grid__item" id="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img"></img></i></div>
+					<div class="grid__item" id="search_div1" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img1" name="search_img"></img></i></div>
+					
+					
+								
 				</div>
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
@@ -122,6 +126,7 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
+		
 				<div id="drop-area" class="drop-area">
 					<div class="drop-area__content"><h6>Drag and Drop the item into the Box</h6>
 					
@@ -210,11 +215,14 @@ echo "Hi: ".$_SESSION["firstname"];
 		
 			 
 		
-		<script>
+			<script>
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
-
+			var photoUrl;
+			var searchImg = document.getElementsByName("search_img");  
+			var searchDiv = document.getElementsByName("search_div");  
+			
 			function initAutocomplete() {
 			  var map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
@@ -225,7 +233,13 @@ echo "Hi: ".$_SESSION["firstname"];
 			  // Create the search box and link it to the UI element.
 			  var input = document.getElementById('pac-input');
 			  var searchBox = new google.maps.places.SearchBox(input);
+			   var infoWindow = new google.maps.InfoWindow();
+
+			 var service = new google.maps.places.PlacesService(map);
 			 
+			
+			 
+			
 
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
@@ -269,12 +283,13 @@ echo "Hi: ".$_SESSION["firstname"];
 					anchor: new google.maps.Point(17, 34),
 					scaledSize: new google.maps.Size(25, 25)
 				  };
+				  
 
 				  var photos = place.photos;
 					if (!photos) {
 					return;
 					}
-					document.getElementById("search_img").src=photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
+					
 				  
 				  // Create a marker for each place.
 				  var itinerary_marker = new google.maps.Marker({
@@ -284,34 +299,80 @@ echo "Hi: ".$_SESSION["firstname"];
 					icon: photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})
 			        });
 					
-				  markers.push(itinerary_marker);
-				  
-				  
-				  
-				   var contentString = '<div id="content">'+
-					  '<h1 id="firstHeading" class="firstHeading">'+place.name+'</h1>'+
-					  '<div id="bodyContent">'+
-					  '<div>'+'<h4>'+place.formatted_address+'</h4>'+'</div>'+
-					  '<div>'+'<img src="'+photos[1].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+photos[2].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'</div>'+
-					  '<p><b>'+place.name+'</b> rating &#40;from 1 to 5 &#41; is <b>'+place.rating+'</b></p>'+
-					  '<p><b>'+place.reviews[0].author_name+' </b>"'+place.reviews[0].text+'"<b>Rating '+place.reviews[0].rating+' Star</b></p>'+
-					  '<p><b>'+place.reviews[1].author_name+' </b>"'+place.reviews[1].text+'"<b>Rating '+place.reviews[1].rating+' Star</b></p>'+
-					  '<p><b>'+place.reviews[2].author_name+' </b>"'+place.reviews[2].text+'"<b>Rating '+place.reviews[2].rating+' Star</b></p>'+
-					  '<p>'+place.international_phone_number+'</p>'+ 
-					  '<p><a href='+place.website+' target="blank">'+''+place.website+'</a> '+'</p>'+
-					  '</div>'+
-					  '</div>';
-
-			
-					  var infowindow = new google.maps.InfoWindow({
+					
+				var contentString='';
+					var infowindow = new google.maps.InfoWindow({
 						content: contentString,
 						maxWidth: 800
 					  });
 
+					
+				  markers.push(itinerary_marker);
+				  
+				  
+				   google.maps.event.addListener(itinerary_marker, 'click', function() {
+						service.getDetails(place, function(result, status) {
+						  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+							console.error(status);
+							return;
+						  }
+						  photoUrl=result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
+						  var placeDetailPhotoUrl=new Array();
+						  var i=0;
+						   placeDetailPhotoUrl[0]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[1]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[2]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[3]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[4]="img/logo-grey-transparent120px.png";
+						    while(i<5){
+						   try
+							  {
+							  placeDetailPhotoUrl[i]=result.photos[i].getUrl({'maxWidth': 120, 'maxHeight': 120});
+							  i++;
+							  }
+							catch(err)
+							  {
+							  break;
+							  }
+						  }
+						   contentString = '<div id="content">'+
+						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
+						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="">'+"Like"+'</button>'+
+						  '</div>'+
+						  '<div class="form-group">'+'<button type="submit" id="addToList" onclick="addToList()">'+"Add To List"+'</button>'+
+						  '</div>'+
+						  '<div id="bodyContent">'+
+						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
+						  '<div>'+'<img src="'+placeDetailPhotoUrl[0]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[1]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[2]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[3]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[4]+'" alt="" />'+
+						  '</div>'+
+						  '<p><b>'+result.name+'</b> rating &#40;from 1 to 5 &#41; is <b>'+result.rating+'</b></p>'+
+						  '<p><b>'+result.reviews[0].author_name+' </b>"'+result.reviews[0].text+'"<b>Rating '+result.reviews[0].rating+' Star</b></p>'+
+						  '<p><b>'+result.reviews[1].author_name+' </b>"'+result.reviews[1].text+'"<b>Rating '+result.reviews[1].rating+' Star</b></p>'+
+						  '<p><b>'+result.reviews[2].author_name+' </b>"'+result.reviews[2].text+'"<b>Rating '+result.reviews[2].rating+' Star</b></p>'+
+						  '<p>'+result.international_phone_number+'</p>'+ 
+						  '<p><a href='+result.website+' target="blank">'+''+result.website+'</a> '+'</p>'+
+						  '</div>'+
+						  '</div>';
+						  
+						  
+						  
+						  
+						  infoWindow.setContent(contentString);
+						  infoWindow.open(map, itinerary_marker);
+						});
+					  });
+					  
+			
+					
 				   
-				  google.maps.event.addListener(itinerary_marker, 'click', function() {
-					infowindow.open(map, this);
-					});
+				 // google.maps.event.addListener(itinerary_marker, 'click', function() {
+				//	infowindow.open(map, this);
+				//
+				//	});
 
 				  	
 
@@ -321,27 +382,34 @@ echo "Hi: ".$_SESSION["firstname"];
 				  } else {
 					bounds.extend(place.geometry.location);
 				  }
+				  	
+				  
 				});
-				map.fitBounds(bounds);
-				//Display and hide drag and drop item
-						if (places.length == 0) {
-						  return;
-						}else{
-												
-							 
-							document.getElementById("div1").style.display="none";
-							document.getElementById("div2").style.display="none";
-							document.getElementById("div3").style.display="none";
-							document.getElementById("div4").style.display="none";
-							document.getElementById("div5").style.display="none";
-							document.getElementById("div6").style.display="none";		
-		
-							document.getElementById("search_div").style.display = "block";
+				
+				
 							
-							}													
+							
+							
+				
+				
+				
+				map.fitBounds(bounds);
+											
 						
 			  });
 			  // [END region_getplaces]
+			}
+			
+			function addToList() {
+				document.getElementById("div1").style.display="none";
+				document.getElementById("div2").style.display="none";
+				document.getElementById("div3").style.display="none";
+				document.getElementById("div4").style.display="none";
+				document.getElementById("div5").style.display="none";
+				document.getElementById("div6").style.display="none";	
+				
+				searchImg[0].src=photoUrl;
+				searchDiv[0].style.display = "block";		
 			}
 
 
