@@ -122,37 +122,68 @@ if($tempMonth !=null)
 $endTime = $year."-".$month."-".$day." ". $timeWhole. " " . $AmPm;
 }
 
+$query_count = "SELECT max(tripID) FROM TP_Trip";
 
+  // check the sql statement for errors and if errors report them 
+  $stmt = oci_parse($connect, $query_count); 
+
+  if(!$stmt)  {
+    echo "An error occurred in parsing the sql string.\n"; 
+    exit; 
+  }
+  oci_execute($stmt);
+   if (oci_fetch_array($stmt))  {
+	
+	$tripID = oci_result($stmt,1);//returns the data for column 1 
+  } else {
+	echo "An error occurred in retrieving order id.\n"; 
+	exit; 
+  }
+
+  $tripID++;
+  
 if($UserName == null || $endTime == null || $startTime == null) ;
 else 
 	{
 		if($AmPm =="am" && $sAmPm == "am")
 		{
-		$strSQL="INSERT INTO TP_Trip VALUES (tripID_seq.nextval, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI AM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI AM'))";
+		$strSQL="INSERT INTO TP_Trip VALUES (:TripID, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI AM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI AM'))";
 		}
 				else if($AmPm =="am" && $sAmPm == "pm")
 		{
-		$strSQL="INSERT INTO TP_Trip VALUES (tripID_seq.nextval, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI PM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI AM'))";
+		$strSQL="INSERT INTO TP_Trip VALUES (:TripID, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI PM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI AM'))";
 		}
 				else if($AmPm =="pm" && $sAmPm == "pm")
 		{
-		$strSQL="INSERT INTO TP_Trip VALUES (tripID_seq.nextval, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI PM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI PM'))";
+		$strSQL="INSERT INTO TP_Trip VALUES (:TripID, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI PM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI PM'))";
 		}
 				else if($AmPm =="pm" && $sAmPm == "am")
 		{
-		$strSQL="INSERT INTO TP_Trip VALUES (tripID_seq.nextval, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI AM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI PM'))";
+		$strSQL="INSERT INTO TP_Trip VALUES (:TripID, to_timestamp('$startTime' , 'YYYY-MM-DD HH:MI AM'),to_timestamp('$endTime' , 'YYYY-MM-DD HH:MI PM'))";
 		}				
 		$stmt = oci_parse($connect,$strSQL);
+		oci_bind_by_name($stmt1, ":TripID", $tripID);
  		oci_execute($stmt);
 		
-		$strSQL="INSERT INTO TP_CustomerTrip VALUES(customerTripID_seq.nextval,:username, tripID_seq.currval)";
+		$strSQL1="INSERT INTO TP_CustomerTrip VALUES(customerTripID_seq.nextval,:username, :TripID)";
 
-		$stmt = oci_parse($connect,$strSQL);
-		oci_bind_by_name($stmt, ":username", $UserName);
-
- 		oci_execute($stmt);
+		$stmt1 = oci_parse($connect,$strSQ1L);
+		oci_bind_by_name($stmt1, ":TripID", $tripID);
+        oci_bind_by_name($stmt, ":username", $UserName);
+ 		oci_execute($stmt1);
 		
-		$_SESSION['tripID'] = "set";
+		$strSQL2="INSERT INTO TP_favorite (userName, favorite) VALUES
+		(:UserName,:Favorite)";
+
+		$stmt2 = oci_parse($connect,$strSQL2);
+		
+		oci_bind_by_name($stmt2, ":UserName", $UserName);
+   		oci_bind_by_name($stmt2, ":Favorite", $favorite);
+   		
+		
+		oci_execute($stmt2);
+		
+		$_SESSION["tripID"] = $tripID;
  		header("location:itinerary.php");
 		
 	}
