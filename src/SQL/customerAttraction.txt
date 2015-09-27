@@ -1,0 +1,16 @@
+DROP TABLE TP_cusAttraction;
+CREATE TABLE TP_cusAttraction (
+ tripID VARCHAR2(100) NOT NULL,
+ attractionId VARCHAR2(100) NOT NULL ,
+attractionAddress VARCHAR2(100) NOT NULL,
+StartTime date NOT NULL,
+EndTime date NOT NULL, 
+ PRIMARY KEY (tripID,attractionId)
+ ) ;
+
+create sequence cusAttraction_seq 
+start with 1 
+increment by 1 
+nomaxvalue;
+
+commit;

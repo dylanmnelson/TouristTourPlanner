@@ -1,0 +1,16 @@
+DROP TABLE TP_cusresturant;
+CREATE TABLE TP_cusresturant (
+ tripID VARCHAR2(100) NOT NULL,
+ resturantId VARCHAR2(100) NOT NULL ,
+restaurantAddress VARCHAR2(100) NOT NULL £¬
+StartTime date NOT NULL,
+EndTime date NOT NULL, 
+ PRIMARY KEY (tripID,resturantId)
+ ) ;
+
+create sequence TP_cusresturantD_seq 
+start with 1 
+increment by 1 
+nomaxvalue;
+
+commit;
