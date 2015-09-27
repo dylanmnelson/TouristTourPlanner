@@ -17,6 +17,7 @@ require_once('createAccountPhp.php');
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<!-- Validation scripts -->
 		<script src="ValidateFirstName.js" type="text/javascript" ></script>
 		<script src="ValidateLastName.js" type="text/javascript" ></script>
 		<script src="ValidateEmail.js" type="text/javascript" ></script>

@@ -16,10 +16,8 @@ session_start();
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!--time picker-->
+		<!-- time picker css -->
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-		<!--jquerymobile for slider-->
-	
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
