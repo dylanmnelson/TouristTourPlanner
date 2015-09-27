@@ -22,6 +22,35 @@ require_once('createTrip.php');
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script type="text/javascript">
+		function SaveToFavorite(str)
+         {
+			document.getElementById("pac-input").innerphp = "wrong"; 
+           if (str.length==0)
+           {
+            document.getElementById("pac-input").innerphp="";
+           return;
+          }
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+              }
+              else
+           {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+             }
+              xmlhttp.onreadystatechange=function()
+               {
+           if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+              document.getElementById("pac-input").innerphp=xmlhttp.responseText;
+   
+              }
+            }
+           xmlhttp.open("GET","favorite.php?value="+str,true);
+         xmlhttp.send();
+            }
+		</script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -86,7 +115,7 @@ require_once('createTrip.php');
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
-                <form name = "mapPage" method="post"  action="itinerary.php">
+                <form name = "mapPage" method="post"  action="?">
 				<div class="form-group">
 					<div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 						<input class="form-control" size="13" type="text" value="" id="start" name="start" placeholder="Start Time" readonly>
@@ -109,15 +138,19 @@ require_once('createTrip.php');
 				
 				</div>
 				
-					<input type="submit"  class="btn btn-main btn-block toMap" id="btnRouteSearch" value="Let's Go" />
-				
-			</div>
-			</form>
-			<div class="col-lg-12">
-						<input id="pac-input" class="controls" type="text" placeholder="Search Your favorite Place">
-					</div><!-- /.col-lg-12 -->
 					
 				
+			</div>
+			
+				<div class="col-lg-12">	
+				<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
+			</div>
+			</form>
+			
+			<div class="col-lg-12">
+						<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+					</div><!-- /.col-lg-12 -->
+			<!--class="btn btn-main btn-block toMap"-->
 		
 		</div>
 		<!--END body html content-->
@@ -167,6 +200,9 @@ require_once('createTrip.php');
 		</script>          
 
 <script>
+
+
+			
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
@@ -258,17 +294,17 @@ require_once('createTrip.php');
 					
 				  markers.push(itinerary_marker);
 				  
-				  
+
 				   google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
 						  if (status !== google.maps.places.PlacesServiceStatus.OK) {
 							console.error(status);
 							return;
 						  }
-						  
+						  var favorite = document.getElementById("pac-input").value;
 						   contentString = '<div id="content">'+
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
-						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="">'+"Like"+'</button>'+
+						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite(favorite);">'+"Like"+'</button>'+
 						  '</div>'+
 						  '<div id="bodyContent">'+
 						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
