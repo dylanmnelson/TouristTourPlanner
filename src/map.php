@@ -145,7 +145,7 @@ require_once('createTrip.php');
 				</div>
 			</div>
 				<div class="col-lg-12">
-					<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
+					<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
 				</div>
 			</form>
 			<div class="col-lg-12">
