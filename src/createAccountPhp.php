@@ -1,7 +1,7 @@
 <?php 
 session_start();
-$dbuser = "arholt";
-$dbpass = "sit203"; 
+$dbuser = "jyapi";
+$dbpass = "15982749273"; 
 $db = "SSID";
 $connect = OCILogon($dbuser, $dbpass, $db);
 
