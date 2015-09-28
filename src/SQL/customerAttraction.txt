@@ -6,7 +6,7 @@ attractionAddress VARCHAR2(100) NOT NULL,
 StartTime timestamp NOT NULL,
 duration number(10) NOT NULL, 
  PRIMARY KEY (attractionId),
-Foreign key (tripID) REFERENCES TP_Trip(tripID)
+Foreign key (attractionId) REFERENCES TP_trips(tripID)
  ) ;
 
 create sequence attractionId_seq 
