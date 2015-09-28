@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once('createTrip.php');
  ?>
@@ -25,7 +25,7 @@ require_once('createTrip.php');
 		<script type="text/javascript">
 		function SaveToFavorite(str)
          {
-			document.getElementById("pac-input").innerphp = "wrong"; 
+			document.getElementById("pac-input").innerphp = "wrong";
            if (str.length==0)
            {
             document.getElementById("pac-input").innerphp="";
@@ -44,7 +44,7 @@ require_once('createTrip.php');
            if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
               document.getElementById("pac-input").innerphp=xmlhttp.responseText;
-   
+
               }
             }
            xmlhttp.open("GET","favorite.php?value="+str,true);
@@ -69,6 +69,13 @@ require_once('createTrip.php');
 							<span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand" href="#">Traveller</a>
+						<div class="mobileIcons">
+							<a href="./map.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map-marker"></i></a>
+							<a href="./itinerary.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map"></i></a>
+							<?php if (isset($_SESSION["firstname"])){
+								echo '<a href="./settings.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-cog"></i></a>';
+							} ?>
+						</div>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -131,27 +138,20 @@ require_once('createTrip.php');
 						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 					</div>
 					<input type="hidden" id="dtp_input2" value="" /><br/>
-                    <?php if (isset($_SESSION["username"])){
-                 echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
-				 } 
-				 ?> 
-				
+					<?php if (isset($_SESSION["username"])){
+						echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ;
+					 }
+					?>
 				</div>
-				
-					
-				
 			</div>
-			
-				<div class="col-lg-12">	
-				<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
-			</div>
+				<div class="col-lg-12">
+					<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
+				</div>
 			</form>
-			
 			<div class="col-lg-12">
-						<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
-					</div><!-- /.col-lg-12 -->
+				<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+			</div><!-- /.col-lg-12 -->
 			<!--class="btn btn-main btn-block toMap"-->
-		
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -159,12 +159,9 @@ require_once('createTrip.php');
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+		<!-- Custom js -->
 		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-
 		<script type="text/javascript">
 			$('.form_datetime').datetimepicker({
 				language:  'en',
@@ -197,12 +194,8 @@ require_once('createTrip.php');
 				maxView: 1,
 				forceParse: 0
 			});
-		</script>          
-
-<script>
-
-
-			
+		</script>
+	<script>
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
@@ -220,11 +213,11 @@ require_once('createTrip.php');
 			   var infoWindow = new google.maps.InfoWindow();
 
 			 var service = new google.maps.places.PlacesService(map);
-			 
+
 			 var counter=0;
 			 var photoUrl= new Array();
-			 var searchImg = document.getElementsByName("search_img");  
-			 var searchDiv = document.getElementsByName("search_div");  
+			 var searchImg = document.getElementsByName("search_img");
+			 var searchDiv = document.getElementsByName("search_div");
 
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
@@ -232,22 +225,22 @@ require_once('createTrip.php');
 			  });
 
 			  var markers = [];
-			  
-			  
-			  
+
+
+
 			  // [START region_getplaces]
 			  // Listen for the event fired when the user selects a prediction and retrieve
-			  // more details for that place. 
-			  
-		
+			  // more details for that place.
 
-			  
-			  
+
+
+
+
 			  searchBox.addListener('places_changed', function() {
-				  
+
 				var places = searchBox.getPlaces();
-				
-				
+
+
 				if (places.length == 0) {
 				  return;
 				}
@@ -268,22 +261,22 @@ require_once('createTrip.php');
 					anchor: new google.maps.Point(17, 34),
 					scaledSize: new google.maps.Size(25, 25)
 				  };
-				  
+
 
 				  var photos = place.photos;
 					if (!photos) {
 					return;
 					}
-					
-				  
+
+
 				  // Create a marker for each place.
 				  var itinerary_marker = new google.maps.Marker({
-					map: map,					
+					map: map,
 					title: place.name,
 					position: place.geometry.location,
 					icon: photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})
 			        });
-					
+
 					photoUrl[counter]=photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
 				var contentString='';
 					var infowindow = new google.maps.InfoWindow({
@@ -291,9 +284,9 @@ require_once('createTrip.php');
 						maxWidth: 800
 					  });
 
-					
+
 				  markers.push(itinerary_marker);
-				  
+
 
 				   google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
@@ -313,28 +306,25 @@ require_once('createTrip.php');
 						  '<p><b>'+result.reviews[0].author_name+' </b>"'+result.reviews[0].text+'"<b>Rating '+result.reviews[0].rating+' Star</b></p>'+
 						  '<p><b>'+result.reviews[1].author_name+' </b>"'+result.reviews[1].text+'"<b>Rating '+result.reviews[1].rating+' Star</b></p>'+
 						  '<p><b>'+result.reviews[2].author_name+' </b>"'+result.reviews[2].text+'"<b>Rating '+result.reviews[2].rating+' Star</b></p>'+
-						  '<p>'+result.international_phone_number+'</p>'+ 
+						  '<p>'+result.international_phone_number+'</p>'+
 						  '<p><a href='+result.website+' target="blank">'+''+result.website+'</a> '+'</p>'+
 						  '</div>'+
 						  '</div>';
-						  
-						  
-						  
-						  
+
+
+
+
 						  infoWindow.setContent(contentString);
 						  infoWindow.open(map, itinerary_marker);
 						});
 					  });
-					  
-			
-					
-				   
+
 				 // google.maps.event.addListener(itinerary_marker, 'click', function() {
 				//	infowindow.open(map, this);
 				//
 				//	});
 
-				  	
+
 
 				  if (place.geometry.viewport) {
 					// Only geocodes have viewport.
@@ -346,28 +336,15 @@ require_once('createTrip.php');
 						  return;
 						}else{
 							counter++;
-							}					
-				  
+							}
+
 				});
-				
-				
-							
-							
-						
-				
-				
-				
-				
+
 				map.fitBounds(bounds);
-											
-						
 			  });
 			  // [END region_getplaces]
 			}
-
-
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
-		
 	</body>
 </html>

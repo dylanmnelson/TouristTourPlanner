@@ -62,6 +62,10 @@ body {
 .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar{
     background-color: #888888;
 }
+
+.navbar-header .mobileIcons {
+	display: none;
+}
 /* END navbar styles */
 
 /**** END OF COMMON STYLES ***/
@@ -235,6 +239,23 @@ body {
 	
 	.toMap {
 		display: inline;
+	}
+	
+	.navbar-header .mobileIcons {
+		text-align: center;
+		display: block;
+		padding-top: 12px;
+	}
+	
+	.mobileIcons a.navbar-icon {
+		margin: 0 20px;
+		padding-right: 20px;
+		padding-left: 5px;
+		color: #FFFFFF;
+	}
+	
+	.mobileIcons a.navbar-icon:hover {
+		color: #DDDDDD;
 	}
 	
 	/* Navbar mobile dropdown elements */
