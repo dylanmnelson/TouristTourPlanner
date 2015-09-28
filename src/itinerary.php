@@ -134,10 +134,10 @@ echo "Hi: ".$_SESSION["firstname"];
 						<input id="pac-input" class="controls" type="text" placeholder="Search Place">
 					</div><!-- /.col-lg-12 -->
 					<nav class="codrops-demos">
-						<a class="current-demo" href="">Attraction</a>						
+						<a href="">Attraction</a>						
 						<a href="">Restaurant</a>
 						<a href="">Hotel</a>
-						<a href="">Favorite</a>
+						<a class="current-demo" href="">Favorite</a>
 					</nav>
 				</header>
 				<!-- Button for mobile navigation -->
