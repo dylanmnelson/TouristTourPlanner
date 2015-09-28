@@ -1,0 +1,11 @@
+CREATE TABLE Loggin (
+ userName VARCHAR2(100) NOT NULL,
+ password VARCHAR2(100) NOT NULL , 
+firstName VARCHAR2(100) NOT NULL ,
+lastName VARCHAR2(100) NOT NULL ,
+eamil VARCHAR2(100) NOT NULL ,  
+ PRIMARY KEY (userName)
+ ) ;
+
+
+commit;

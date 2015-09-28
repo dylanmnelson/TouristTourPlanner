@@ -1,0 +1,14 @@
+DROP TABLE TP_customerTrip;
+CREATE TABLE TP_customerTrip (
+customerTripID number (10) NOT NULL,
+ userName VARCHAR2(100) NOT NULL,
+ tripID number(10) NOT NULL , 
+ PRIMARY KEY (userName)
+ ) ;
+ 
+create sequence customerTripID_seq 
+start with 1 
+increment by 1 
+nomaxvalue;
+
+commit;

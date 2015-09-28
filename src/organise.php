@@ -6,19 +6,18 @@ session_start();
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Organise - Traveller</title>
-        <meta name="description" content="">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<!--Bootstrap & Font Awesome-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!--time picker-->
+		<!-- time picker css -->
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-		<!--jquerymobile for slider-->
-	
 		<!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />

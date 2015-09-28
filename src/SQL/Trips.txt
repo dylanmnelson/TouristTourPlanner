@@ -1,0 +1,11 @@
+DROP TABLE TP_trips;
+
+CREATE TABLE TP_trips (
+ tripID number(10) NOT NULL,
+ stratTime timestamp NOT NULL , 
+  endTime timestamp NOT NULL , 
+ PRIMARY KEY (tripID)
+ ) ;
+
+
+commit;
