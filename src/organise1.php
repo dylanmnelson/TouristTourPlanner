@@ -97,7 +97,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="container">
 			<div class="content">
-			
+			<form action="?" method="post">
 				<table class="table">
 					<thead>
 					  <tr>
@@ -160,6 +160,8 @@ echo "Hi: ".$_SESSION["firstname"];
 					 
 					</tbody>
 				  </table>
+				  <input type="submit" value="Save" id="" class=""/>
+				  </form>
 			</div>
 		</div>
 		</div>
