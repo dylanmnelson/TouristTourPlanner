@@ -1,14 +1,19 @@
-DROP TABLE TP_customerTrip;
-CREATE TABLE TP_customerTrip (
-customerTripID number (10) NOT NULL,
+DROP TABLE TP_CustomerTrip;
+
+CREATE TABLE TP_CustomerTrip (
+ customerTripID number(38) NOT NULL,
  userName VARCHAR2(100) NOT NULL,
- tripID number(10) NOT NULL , 
- PRIMARY KEY (customerTripID)
+ tripID number(38) NOT NULL , 
+ PRIMARY KEY (customerTripID),
+ Foreign key (tripID) REFERENCES TP_Trip(tripID)
  ) ;
- 
+
+drop sequence customerTripID_seq;
 create sequence customerTripID_seq 
 start with 1 
 increment by 1 
 nomaxvalue;
+
+
 
 commit;
