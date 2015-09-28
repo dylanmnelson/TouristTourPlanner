@@ -22,8 +22,8 @@ require_once('createTrip.php');
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<script type="text/javascript">
-		function SaveToFavorite(str)
+		<script>
+		 function SaveToFavorite(str)
          {
 			document.getElementById("pac-input").innerphp = "wrong"; 
            if (str.length==0)
@@ -137,11 +137,7 @@ require_once('createTrip.php');
 				 ?> 
 				
 				</div>
-				
-					
-				
 			</div>
-			
 				<div class="col-lg-12">	
 				<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
 			</div>
@@ -160,6 +156,8 @@ require_once('createTrip.php');
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
+		
+		
 		
 		
 		
@@ -301,10 +299,10 @@ require_once('createTrip.php');
 							console.error(status);
 							return;
 						  }
-						  var favorite = document.getElementById("pac-input").value;
+						  
 						   contentString = '<div id="content">'+
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
-						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite(favorite);">'+"Like"+'</button>'+
+						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="saveFavorite()">'+"Like"+'</button>'+
 						  '</div>'+
 						  '<div id="bodyContent">'+
 						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
@@ -350,21 +348,17 @@ require_once('createTrip.php');
 				  
 				});
 				
-				
-							
-							
-						
-				
-				
-				
-				
 				map.fitBounds(bounds);
 											
 						
 			  });
 			  // [END region_getplaces]
 			}
-
+			function saveFavorite(){
+				var favorite = document.getElementById("pac-input").value;
+				SaveToFavorite(favorite);
+			}
+      
 
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
