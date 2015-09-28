@@ -1,10 +1,12 @@
-CREATE TABLE Loggin (
- userName VARCHAR2(100) NOT NULL,
- password VARCHAR2(100) NOT NULL , 
+DROP TABLE TP_accounts;
+
+CREATE TABLE TP_accounts (
 firstName VARCHAR2(100) NOT NULL ,
 lastName VARCHAR2(100) NOT NULL ,
-eamil VARCHAR2(100) NOT NULL ,  
- PRIMARY KEY (userName)
+userName VARCHAR2(100) NOT NULL,
+password VARCHAR2(100) NOT NULL , 
+email VARCHAR2(100) NOT NULL ,  
+PRIMARY KEY (userName)
  ) ;
 
 

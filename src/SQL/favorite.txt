@@ -1,10 +1,16 @@
 DROP TABLE TP_favorite;
 
 CREATE TABLE TP_favorite (
+favouritesId number(10) NOT NULL ,
 userName VARCHAR2(100) NOT NULL,
 favorite VARCHAR2(100) NOT NULL ,
  PRIMARY KEY (userName)
  ) ;
+
+create sequence favouritesId_seq 
+start with 1 
+increment by 1 
+nomaxvalue;
 
 
 commit;

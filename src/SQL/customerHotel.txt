@@ -1,13 +1,14 @@
 DROP TABLE TP_cusHotel;
 CREATE TABLE TP_cusHotel (
- tripID VARCHAR2(100) NOT NULL,
- hotelId VARCHAR2(100) NOT NULL ,
-hotelAddress VARCHAR2(100) NOT NULL ,
-StartTime date NOT NULL,
-EndTime date NOT NULL, 
- PRIMARY KEY (tripID,hotelId)
+hotelId number(10) NOT NULL ,
+tripID number(10) NOT NULL, 
+hotelAddress VARCHAR2(100) NOT NULL,
+StartTime timestamp NOT NULL,
+duration number(10) NOT NULL,  
+PRIMARY KEY (hotelId),  
+Foreign key (tripID) REFERENCES TP_Trip(tripID)
  ) ;
-create sequence TP_cusHotel_seq 
+create sequence hotelId_seq 
 start with 1 
 increment by 1 
 nomaxvalue;

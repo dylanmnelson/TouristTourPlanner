@@ -23,6 +23,35 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script>
+		function SaveTosession(search, address, action)
+         {
+			var str = search +"&"+address+"&"+action;
+           if (str.length==0)
+           {
+            document.getElementById("pac-input").innerphp="";
+           return;
+          }
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+              }
+              else
+           {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+             }
+              xmlhttp.onreadystatechange=function()
+               {
+           if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+              document.getElementById("pac-input").innerphp=xmlhttp.responseText;
+   
+              }
+            }
+           xmlhttp.open("GET","addItinerary.php?value="+str,true);
+         xmlhttp.send();
+            }
+		</script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -184,10 +213,10 @@ echo "Hi: ".$_SESSION["firstname"];
 								// remove class 'drag-active' from body
 								classie.remove( body, 'drag-active' );
 								// take dropped item and put it into database 
-								<?php if (isset($_SESSION["tripID"])) 
-								{
-									require(addItinerary.php);
-								} ?>
+								var search = "attraction";///what we are search , attractions , hotel or restaurant.
+								var address=document.getElementById('pac-input').value;
+								var action = "wasDropped";
+								SaveTosession(search, address, action);
 								
 							};
 
