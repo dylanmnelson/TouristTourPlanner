@@ -144,6 +144,9 @@ if (!$connect)
             <button class="btn btn-main btn-block" type="submit">Update password</button>
             </form>
 			<h1 class="heading">Delete Your Account</h1>
+            <form action="deleteAccount.php" method="post">
+             <button class="btn btn-main btn-block" type="submit">Delete Account</button>
+            </form>
            </div> 
 		</div>
 		<!-- /End settings page html -->
