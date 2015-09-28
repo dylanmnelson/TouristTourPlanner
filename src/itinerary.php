@@ -134,10 +134,10 @@ echo "Hi: ".$_SESSION["firstname"];
 						<input id="pac-input" class="controls" type="text" placeholder="Search Place">
 					</div><!-- /.col-lg-12 -->
 					<nav class="codrops-demos">
-						<a href="">Attraction</a>						
-						<a href="">Restaurant</a>
-						<a href="">Hotel</a>
-						<a class="current-demo" href="">Favorite</a>
+						<a class="current-demo" href="itinerary.php">Favorite</a>
+						<a href="javascript:attraction()">Attraction</a>						
+						<a href="javascript:restaurant()">Restaurant</a>
+						<a href="javascript:hotel()">Hotel</a>						
 					</nav>
 				</header>
 				<!-- Button for mobile navigation -->
@@ -443,6 +443,16 @@ echo "Hi: ".$_SESSION["firstname"];
 				searchImg[0].src=photoUrl;
 				searchDiv[0].style.display = "block";		
 			}
+			
+			function attraction(){
+				document.getElementById("pac-input").value="melbourne attraction";
+				}
+			function restaurant(){
+				document.getElementById("pac-input").value="melbourne restaurant\r";
+				}
+			function hotel(){
+				document.getElementById("pac-input").value="melbourne hotel\r";
+				}
 
 
 		</script>
