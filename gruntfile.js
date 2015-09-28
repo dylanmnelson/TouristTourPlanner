@@ -52,7 +52,7 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				cwd: '<%= project.src %>/',
-				src: ['**/*','!css/main.css','!js/custom.js'],
+				src: ['**/*','!css/main.css','!js/custom.js','!SQL/**'],
 				dest: '<%= project.app %>',
 				expand: true
 			}
