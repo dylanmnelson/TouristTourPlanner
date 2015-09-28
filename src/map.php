@@ -288,32 +288,62 @@ require_once('createTrip.php');
 				  markers.push(itinerary_marker);
 
 
-				   google.maps.event.addListener(itinerary_marker, 'click', function() {
+				  google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
 						  if (status !== google.maps.places.PlacesServiceStatus.OK) {
 							console.error(status);
 							return;
 						  }
+						  photoUrl=result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
+						  var placeDetailPhotoUrl=new Array();
+						  var placeDetailReviewAuthorName=new Array();
+						  var placeDetailReviewText=new Array();
+						  var placeDetailReviewRating=new Array();
+						  var i=0;
+						   placeDetailPhotoUrl[0]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[1]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[2]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[3]="img/logo-grey-transparent120px.png";
+						   placeDetailPhotoUrl[4]="img/logo-grey-transparent120px.png";
+						    while(i<5){
+						   try
+							  {
+							  placeDetailPhotoUrl[i]=result.photos[i].getUrl({'maxWidth': 120, 'maxHeight': 120});
+							  placeDetailReviewAuthorName[i]=result.review[i].author_name;
+							  placeDetailReviewText[i]=result.review[i].text;
+							  placeDetailReviewRating[i]=result.review[i].rating;
+							  i++;
+							  }
+							catch(err)
+							  {
+							  break;
+							  }
+						  }
 						  var favorite = document.getElementById("pac-input").value;
-						   contentString = '<div id="content">'+
+						  
+						  
+						    contentString = '<div id="content">'+
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
 						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite(favorite);">'+"Like"+'</button>'+
 						  '</div>'+
+						  '<div class="form-group">'+'<button type="submit" id="addToList" onclick="addToList()">'+"Add To List"+'</button>'+
+						  '</div>'+
 						  '<div id="bodyContent">'+
 						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
-						  '<div>'+'<img src="'+result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[1].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[2].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[3].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'<img src="'+result.photos[4].getUrl({'maxWidth': 120, 'maxHeight': 120})+'" alt="Photo" />'+'</div>'+
+						  '<div>'+'<img src="'+placeDetailPhotoUrl[0]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[1]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[2]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[3]+'" alt="" />'+
+						  '<img src="'+placeDetailPhotoUrl[4]+'" alt="" />'+
+						  '</div>'+
 						  '<p><b>'+result.name+'</b> rating &#40;from 1 to 5 &#41; is <b>'+result.rating+'</b></p>'+
-						  '<p><b>'+result.reviews[0].author_name+' </b>"'+result.reviews[0].text+'"<b>Rating '+result.reviews[0].rating+' Star</b></p>'+
-						  '<p><b>'+result.reviews[1].author_name+' </b>"'+result.reviews[1].text+'"<b>Rating '+result.reviews[1].rating+' Star</b></p>'+
-						  '<p><b>'+result.reviews[2].author_name+' </b>"'+result.reviews[2].text+'"<b>Rating '+result.reviews[2].rating+' Star</b></p>'+
-						  '<p>'+result.international_phone_number+'</p>'+
+						  '<p><b>'+placeDetailReviewAuthorName[0]+' </b>"'+placeDetailReviewText[0]+'"<b>Rating '+placeDetailReviewRating[0]+' Star</b></p>'+
+						  '<p><b>'+placeDetailReviewAuthorName[1]+' </b>"'+placeDetailReviewText[1]+'"<b>Rating '+placeDetailReviewRating[1]+' Star</b></p>'+
+						  '<p><b>'+placeDetailReviewAuthorName[2]+' </b>"'+placeDetailReviewText[2]+'"<b>Rating '+placeDetailReviewRating[2]+' Star</b></p>'+
+						  '<p>'+result.international_phone_number+'</p>'+ 
 						  '<p><a href='+result.website+' target="blank">'+''+result.website+'</a> '+'</p>'+
 						  '</div>'+
 						  '</div>';
-
-
-
-
 						  infoWindow.setContent(contentString);
 						  infoWindow.open(map, itinerary_marker);
 						});
