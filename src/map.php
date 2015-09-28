@@ -309,9 +309,9 @@ require_once('createTrip.php');
 						   try
 							  {
 							  placeDetailPhotoUrl[i]=result.photos[i].getUrl({'maxWidth': 120, 'maxHeight': 120});
-							  placeDetailReviewAuthorName[i]=result.review[i].author_name;
-							  placeDetailReviewText[i]=result.review[i].text;
-							  placeDetailReviewRating[i]=result.review[i].rating;
+							  placeDetailReviewAuthorName[i]=result.reviews[i].author_name;
+							  placeDetailReviewText[i]=result.reviews[i].text;
+							  placeDetailReviewRating[i]=result.reviews[i].rating;
 							  i++;
 							  }
 							catch(err)
