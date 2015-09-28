@@ -11,8 +11,8 @@ if (!$connect)
 $UserName=$_SESSION["username"]
 $favorite=$_GET["value"];
 
-$strSQL="INSERT INTO TP_favorite (userName, favorite) VALUES
-		(:UserName,:Favorite)";
+$strSQL="INSERT INTO TP_favorite (favouritesId, userName, favorite) VALUES
+		(favouritesId_seq.nextval,:UserName,:Favorite)";
 
 		$stmt = oci_parse($connect,$strSQL);
 		
