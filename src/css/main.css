@@ -1,3 +1,4 @@
+/** RESET STYLES **/
 html, body,#map-canvas {
 	height: 100%; 
 	margin: 0px;
@@ -116,7 +117,6 @@ body {
 /**** START OF MAP PAGE STYLES ***/
 
 /* Padding for the navbar */
-
 .mapWrapper, .contentWrapper {
 	top: 50px;
 }
@@ -145,6 +145,7 @@ body {
 	display: none;
 }
 
+/* Map page right panel */
 .rightPanel {
 	top: 50px;
 	right: 0;
@@ -154,6 +155,8 @@ body {
 	padding: 20px 20px 0px;
 	z-index: 99;
 }
+
+/* Itinerary page right panel */
 .newRightPanel {
 	top: 30px;
 	right: 5px;
@@ -174,6 +177,7 @@ body {
 	left: 0;
 	right: 0;
 }
+
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -213,9 +217,6 @@ body {
 	font-size: 13px;
 	font-weight: 300;
 }
-
-
-
 
 /**** END OF MAP PAGE STYLES ***/
 /*** START MOBILE STYLES ***/
