@@ -1,1 +1,2 @@
-# TouristTourPlanner
+# Traveller
+## A mobile-friendly tour planner
