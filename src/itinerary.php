@@ -254,12 +254,28 @@ echo "Hi: ".$_SESSION["firstname"];
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
+			var map;
 			var photoUrl;
 			var searchImg = document.getElementsByName("search_img");  
-			var searchDiv = document.getElementsByName("search_div");  
+			var searchDiv = document.getElementsByName("search_div");
+			
+			/**
+			 * Function to show the map panel and hide the form panel on mobile.
+			 */
+			$('.toMap').click(function() {
+				$('#panelForm').removeClass('showActive');
+				$('#panelForm').addClass('hideInactive');
+				$('#map').removeClass('hideInactive');
+				$('#map').addClass('showActive');
+				
+				//Resetting maps
+				var center = map.getCenter();
+				google.maps.event.trigger(map, 'resize');
+				map.setCenter(center);
+			});
 			
 			function initAutocomplete() {
-			  var map = new google.maps.Map(document.getElementById('map'), {
+			  map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
 				zoom: 13,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
