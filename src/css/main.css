@@ -235,7 +235,7 @@ body {
 	}
 	
 	.btnBackToForm {
-		display: inline;
+		display: none;
 	}
 	
 	.toMap {

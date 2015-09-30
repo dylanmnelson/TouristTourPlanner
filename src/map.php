@@ -112,10 +112,9 @@ require_once('createTrip.php');
 				</div>
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
-		<div class="mapWrapper hideInactive" id="map">
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
-				</div>
+		<div class="mapWrapper hideInactive" id="map"></div>
+		<!-- Button for mobile navigation -->
+		<button type="submit" class="btn btn-main btnBackToForm" id="btnShowForm">Back</button>
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
@@ -148,11 +147,16 @@ require_once('createTrip.php');
 			</form>
 			
 			<div class="col-lg-12">
-						<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
-					</div><!-- /.col-lg-12 -->
-					<div id = "v1" >12</div>
+				<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+			</div><!-- /.col-lg-12 -->
+			<div id = "v1" >12</div>
 					
-			<!--class="btn btn-main btn-block toMap"-->
+			<div class="col-lg-12">
+				<div class="form-group">
+					<!-- Button for mobile navigation -->
+					<button type="submit" class="btn btn-main btn-block toMap" >Go to Map</button>
+				</div>
+			</div>
 		
 		</div>
 		<!--END body html content-->
@@ -204,15 +208,14 @@ require_once('createTrip.php');
 		</script>          
 
 <script>
-
-
+	var map;
 			
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
 
 			function initAutocomplete() {
-			  var map = new google.maps.Map(document.getElementById('map'), {
+			  map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
 				zoom: 13,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
