@@ -49,6 +49,7 @@ require_once('createTrip.php');
             }
            xmlhttp.open("GET","favorite.php?value="+str,true);
          xmlhttp.send();
+		 alert("O(∩_∩)O");
             }
 		</script>
 	</head>
