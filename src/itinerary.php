@@ -442,6 +442,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				
 				searchImg[0].src=photoUrl;
 				searchDiv[0].style.display = "block";		
+				alert("O(∩_∩)O");
 			}
 			
 			function attraction(){
