@@ -143,12 +143,6 @@ require_once('createTrip.php');
 					 }
 					?>
 				</div>
-<<<<<<< HEAD
-			</div>
-				<div class="col-lg-12">	
-				<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
-=======
->>>>>>> 6eb134d119a35c6b2a6222466ed2b20aeec5053a
 			</div>
 				<div class="col-lg-12">
 					<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
@@ -167,14 +161,6 @@ require_once('createTrip.php');
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<!-- Custom js -->
 		<script type="text/javascript" src="js/custom.js"></script>
-<<<<<<< HEAD
-		
-		
-		
-		
-		
-=======
->>>>>>> 6eb134d119a35c6b2a6222466ed2b20aeec5053a
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 			$('.form_datetime').datetimepicker({
@@ -308,10 +294,7 @@ require_once('createTrip.php');
 							console.error(status);
 							return;
 						  }
-<<<<<<< HEAD
 						  
-						   contentString = '<div id="content">'+
-=======
 						  photoUrl=result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
 						  var placeDetailPhotoUrl=new Array();
 						  var placeDetailReviewAuthorName=new Array();
@@ -341,7 +324,6 @@ require_once('createTrip.php');
 						  
 						  
 						    contentString = '<div id="content">'+
->>>>>>> 6eb134d119a35c6b2a6222466ed2b20aeec5053a
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
 						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="saveFavorite()">'+"Like"+'</button>'+
 						  '</div>'+
@@ -388,24 +370,15 @@ require_once('createTrip.php');
 							}
 
 				});
-<<<<<<< HEAD
-				
-=======
-
->>>>>>> 6eb134d119a35c6b2a6222466ed2b20aeec5053a
 				map.fitBounds(bounds);
 			  });
 			  // [END region_getplaces]
 			}
-<<<<<<< HEAD
+			
 			function saveFavorite(){
 				var favorite = document.getElementById("pac-input").value;
 				SaveToFavorite(favorite);
 			}
-      
-
-=======
->>>>>>> 6eb134d119a35c6b2a6222466ed2b20aeec5053a
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 	</body>
