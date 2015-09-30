@@ -50,14 +50,8 @@ require_once('createTrip.php');
    
               }
             }
-<<<<<<< HEAD
            xmlhttp.open("GET","favorite.php?q="+str,true);
            xmlhttp.send();
-=======
-           xmlhttp.open("GET","favorite.php?value="+str,true);
-         xmlhttp.send();
-		 alert("O(∩_∩)O");
->>>>>>> origin/master
             }
 		</script>
 	</head>
@@ -149,30 +143,17 @@ require_once('createTrip.php');
 				</div>
 			</div>
 				<div class="col-lg-12">
-						<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
+					<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
 				</div>
 			</form>
 			
 			<div class="col-lg-12">
-<<<<<<< HEAD
 						<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
 					</div><!-- /.col-lg-12 -->
 					<div id = "v1" >12</div>
 					
 			<!--class="btn btn-main btn-block toMap"-->
 		
-=======
-				<div class="form-group">
-					<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
-				</div>
-			</div><!-- /.col-lg-12 -->
-			<div class="col-lg-12">
-				<div class="form-group">
-					<!-- Button for mobile navigation -->
-					<button type="submit" class="btn btn-main btn-block toMap">Go to Map</button>
-				</div>
-			</div>
->>>>>>> origin/master
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -181,14 +162,11 @@ require_once('createTrip.php');
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
-<<<<<<< HEAD
 		
 		
 		
 		
 		
-=======
->>>>>>> origin/master
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 
 		<script type="text/javascript">
@@ -232,25 +210,9 @@ require_once('createTrip.php');
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
-			var map;
-			
-			/**
-			 * Function to show the map panel and hide the form panel on mobile.
-			 */
-			$('.toMap').click(function() {
-				$('#panelForm').removeClass('showActive');
-				$('#panelForm').addClass('hideInactive');
-				$('#map').removeClass('hideInactive');
-				$('#map').addClass('showActive');
-				
-				//Resetting maps
-				var center = map.getCenter();
-				google.maps.event.trigger(map, 'resize');
-				map.setCenter(center);
-			});
 
 			function initAutocomplete() {
-			  map = new google.maps.Map(document.getElementById('map'), {
+			  var map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
 				zoom: 13,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -344,39 +306,7 @@ require_once('createTrip.php');
 							return;
 						  }
 						  
-<<<<<<< HEAD
 						   contentString = '<div id="content">'+
-=======
-						  photoUrl=result.photos[0].getUrl({'maxWidth': 120, 'maxHeight': 80});
-						  var placeDetailPhotoUrl=new Array();
-						  var placeDetailReviewAuthorName=new Array();
-						  var placeDetailReviewText=new Array();
-						  var placeDetailReviewRating=new Array();
-						  var i=0;
-						   placeDetailPhotoUrl[0]="img/logo-grey-transparent120px.png";
-						   placeDetailPhotoUrl[1]="img/logo-grey-transparent120px.png";
-						   placeDetailPhotoUrl[2]="img/logo-grey-transparent120px.png";
-						   placeDetailPhotoUrl[3]="img/logo-grey-transparent120px.png";
-						   placeDetailPhotoUrl[4]="img/logo-grey-transparent120px.png";
-						    while(i<5){
-						   try
-							  {
-							  placeDetailPhotoUrl[i]=result.photos[i].getUrl({'maxWidth': 120, 'maxHeight': 120});
-							  placeDetailReviewAuthorName[i]=result.reviews[i].author_name;
-							  placeDetailReviewText[i]=result.reviews[i].text;
-							  placeDetailReviewRating[i]=result.reviews[i].rating;
-							  i++;
-							  }
-							catch(err)
-							  {
-							  break;
-							  }
-						  }
-						  var favorite = document.getElementById("pac-input").value;
-						  
-						  
-						    contentString = '<div id="content">'+
->>>>>>> origin/master
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
 						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite()">'+"Like"+'</button>'+
 						  '</div>'+
@@ -423,10 +353,7 @@ require_once('createTrip.php');
 							}					
 				  
 				});
-<<<<<<< HEAD
 				
-=======
->>>>>>> origin/master
 				map.fitBounds(bounds);
 											
 						
@@ -434,14 +361,7 @@ require_once('createTrip.php');
 			  // [END region_getplaces]
 			}
 			
-<<<<<<< HEAD
 
-=======
-			function saveFavorite(){
-				var favorite = document.getElementById("pac-input").value;
-				SaveToFavorite(favorite);
-			}
->>>>>>> origin/master
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 		
