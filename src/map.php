@@ -145,13 +145,20 @@ require_once('createTrip.php');
 				</div>
 			</div>
 				<div class="col-lg-12">
-					<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
+						<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
 				</div>
 			</form>
 			<div class="col-lg-12">
-				<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+				<div class="form-group">
+					<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+				</div>
 			</div><!-- /.col-lg-12 -->
-			<!--class="btn btn-main btn-block toMap"-->
+			<div class="col-lg-12">
+				<div class="form-group">
+					<!-- Button for mobile navigation -->
+					<button type="submit" class="btn btn-main btn-block toMap">Go to Map</button>
+				</div>
+			</div>
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -199,9 +206,25 @@ require_once('createTrip.php');
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
+			var map;
+			
+			/**
+			 * Function to show the map panel and hide the form panel on mobile.
+			 */
+			$('.toMap').click(function() {
+				$('#panelForm').removeClass('showActive');
+				$('#panelForm').addClass('hideInactive');
+				$('#map').removeClass('hideInactive');
+				$('#map').addClass('showActive');
+				
+				//Resetting maps
+				var center = map.getCenter();
+				google.maps.event.trigger(map, 'resize');
+				map.setCenter(center);
+			});
 
 			function initAutocomplete() {
-			  var map = new google.maps.Map(document.getElementById('map'), {
+			  map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
 				zoom: 13,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
