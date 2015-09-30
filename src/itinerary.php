@@ -24,12 +24,15 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script>
-		function SaveTosession(search, address, action)
+		function SaveTosession()
          {
-			var str = search +"&"+address+"&"+action;
+			var search = "attraction";///what we are search , attractions , hotel or restaurant.
+			var address=document.getElementById('pac-input').value;
+			var trip = document.getElementById('trip').value;
+			var str = search +"|"+address+"|"+trip;
            if (str.length==0)
            {
-            document.getElementById("pac-input").innerphp="";
+            document.getElementById("v1").innerHTML="";
            return;
           }
             if (window.XMLHttpRequest)
@@ -44,11 +47,11 @@ session_start();
                {
            if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-              document.getElementById("pac-input").innerphp=xmlhttp.responseText;
+              document.getElementById("v1").innerHTML=xmlhttp.responseText;
    
               }
             }
-           xmlhttp.open("GET","addItinerary.php?value="+str,true);
+           xmlhttp.open("GET","addItinerary.php?q="+str,true);
          xmlhttp.send();
             }
 		</script>
@@ -86,11 +89,11 @@ session_start();
 								<ul class="dropdown-menu">
 									<li><a href="./itinerary.php">View</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="./organise.php">Organise</a></li>
+									<li><a href="./organise1.php">Organise</a></li>
 								</ul>
 							</li>
 						</ul>
-						
+						<input type="hidden" id= "trip" value="<?php echo $_SESSION["tripID"];?>" />
 							<?php if (isset($_SESSION["firstname"])){
                             echo '<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
@@ -140,6 +143,7 @@ echo "Hi: ".$_SESSION["firstname"];
 						<a href="javascript:hotel()">Hotel</a>						
 					</nav>
 				</header>
+				<div id="v1">12</div>
 				<!-- Button for mobile navigation -->
 				<button type="submit" class="btn btn-main toMap">Go to Map</button>
 				<!-- Grid of place results. -->
@@ -158,7 +162,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
 					</br>
-					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
+					<div><span class="center"><a href="organise1.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
 		
@@ -220,20 +224,20 @@ echo "Hi: ".$_SESSION["firstname"];
 								// remove class 'drag-active' from body
 								classie.remove( body, 'drag-active' );
 								// take dropped item and put it into database 
-								var search = "attraction";///what we are search , attractions , hotel or restaurant.
-								var address=document.getElementById('pac-input').value;
-								var action = "wasDropped";
-								SaveTosession(search, address, action);
+								
+								SaveTosession();
 								
 							};
 
 							if( !wasDropped ) {
 								afterDropFn();
+								//SaveTosession();
 							}
 							else {
 								// after some time hide drop area and remove class 'drag-active' from body
 								clearTimeout( dropAreaTimeout );
 								dropAreaTimeout = setTimeout( afterDropFn, 400 );
+								//SaveTosession();
 							}
 						}
 					} );
