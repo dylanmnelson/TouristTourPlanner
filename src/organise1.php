@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require_once('showAttraction.php');
+require_once('saveToAttraction.php');
+
  ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -46,7 +47,7 @@ require_once('showAttraction.php');
 						</button>
 						<a class="navbar-brand" href="#">Traveller</a>
 					</div><!--/.navbar-header-->
-					<div id="navbar" class="navbar-collapse collapse">
+				<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
 							<li class="dropdown active">
@@ -97,7 +98,45 @@ echo "Hi: ".$_SESSION["firstname"];
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="container">
 			<div class="content">
-			<form action="?" method="post">
+<?php
+			$dbuser = "jyapi";
+             $dbpass = "15982749273"; 
+             $db = "SSID";
+             $connect = OCILogon($dbuser, $dbpass, $db);
+           if (!$connect) 
+            {
+	     echo "An error occurred connecting to the database";
+	     exit;
+               }
+		 $tripID = $_SESSION["tripID"];
+		$query = "SELECT * FROM TP_cusAttraction WHERE tripID = '$tripID'";
+		$stmt = oci_parse($connect,$query);
+		
+		if(!$stmt)  {
+        echo "An error occurred in parsing the sql string.\n"; 
+           exit; 
+           }
+         oci_execute($stmt);
+   //////////////////////////////////////////////////
+   		$query1 = "SELECT * FROM TP_cusHotel WHERE tripID = '$tripID'";
+		$stmt1 = oci_parse($connect,$query1);
+		
+		if(!$stmt1)  {
+   echo "An error occurred in parsing the sql string.\n"; 
+   exit; 
+      }
+   oci_execute($stmt1);
+   ///////////////////////////////////
+   		$query2 = "SELECT * FROM TP_cusresturant WHERE tripID = '$tripID'";
+		$stmt2 = oci_parse($connect,$query2);
+		
+		if(!$stmt2)  {
+    echo "An error occurred in parsing the sql string.\n"; 
+    exit; 
+      }
+   oci_execute($stmt2);
+   /////////////////////////////
+   ?>
 				<table class="table">
 					<thead>
 					  <tr>
@@ -106,42 +145,30 @@ echo "Hi: ".$_SESSION["firstname"];
 						<th>Time</th>
 					  </tr>
 					</thead>
-					<tbody>
+                   
+                     <tbody>
 					<tr>
 					<td></td>
 					<td><h4>Attractions</h4></td>
 					<td></td>
 					</tr>
-					<tr><?php
-					showAttraction();
-					?></tr>
-					
-					  <tr>
-					<td></td>
-					<td><h4>Hotels</h4></td>
-					<td></td>
-					</tr>
-					<tr><?php
-					showHotel();
-					?></tr>
-					   <tr>
-					<td></td>
-					<td><h4>Restaurant</h4></td>
-					<td></td>
-					</tr>
-					<tr><?php
-					showResturant();
-					?></tr>
-					  <tr>
+					<tr></tr>
+					<?php
+echo ' <form action="?" method="post">';					
+				 while(oci_fetch_array($stmt))  {
+               $attractionAddress = oci_result($stmt,"ATTRACTIONADDRESS");
+                     $attractionId = oci_result($stmt,"ATTRACTIONID");
+					 // $startTime[]= $attractionId;
+               echo ' <tr>
 						<td>
 						<input type="checkbox" checked="checked"/>
 						</td>
-						<td>Best Western Atlantis Hotel
+						<td>'.$attractionAddress.'
 						</td>
 						<td>
 						<div class="form-group">
 							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
-								<input class="form-control" size="16" type="text" value="" readonly>
+								<input class="form-control" size="16" type="text" name="AttractoinstartTime'.$attractionId.'" value="" readonly>
 								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
 							</div>
 							<input type="hidden" id="dtp_input3" value="" />
@@ -150,18 +177,97 @@ echo "Hi: ".$_SESSION["firstname"];
 						<div class="row">
 							<div class="col-xs-6">
 							  <div class="range range-primary">
-								<input type="range" name="range" min="0" max="12" value="1" onchange="range5.value=value">
-								<output id="range5">1</output>
+								<input type="range" name="range" min="0" max="12" value="1" name="Attractoinduration'.$attractionId.'" onchange="range4.value=value">
+								<output id="range4">1</output>
 							  </div>
 							</div>
 						  </div>
 						</td>
-					  </tr>
-					 
-					</tbody>
+					  </tr> ';
+} 				 ?> 
+					  
+					  <tr>
+					<td></td>
+					<td><h4>Hotels</h4></td>
+					<td></td>
+					</tr>
+					<tr></tr>
+					<?php 
+				while(oci_fetch_array($stmt1))  {
+          $hotelAddress = oci_result($stmt1,"hotelAddress");
+          $hotelId = oci_result($stmt1,"hotelId");
+               echo ' <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>'.$hotelAddress.'
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" name="hotelstartTime'.$hotelId.'" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
+						</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" name="hotelduration'.$hotelId.'" onchange="range4.value=value">
+								<output id="range4">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr> ';
+} 				 ?> 
+					
+					 <tr>
+					<td></td>
+					<td><h4>Restaurant</h4></td>
+					<td></td>
+					</tr>
+					<tr></tr>
+					<?php 
+					
+				 while(oci_fetch_array($stmt2))  {
+               $restaurantAddress = oci_result($stmt2,"ATTRACTIONADDRESS");
+                     $resturantId = oci_result($stmt2,"ATTRACTIONID");
+					
+					
+               echo ' <tr>
+						<td>
+						<input type="checkbox" checked="checked"/>
+						</td>
+						<td>'.$restaurantAddress.'
+						</td>
+						<td>
+						<div class="form-group">
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" name="restaurantstartTime'.$resturantId.'" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" />
+						</div>
+						<div>Hour</div>
+						<div class="row">
+							<div class="col-xs-6">
+							  <div class="range range-primary">
+								<input type="range" name="range" min="0" max="12" value="1" name="restaurantduration'.$resturantId.'" onchange="range4.value=value">
+								<output id="range4">1</output>
+							  </div>
+							</div>
+						  </div>
+						</td>
+					  </tr> ';
+} 				 
+       echo' <tr>  <td> <input class="controls" type="submit" value="Save My Trip" /></a></td></tr>
+</form>';
+ ?>
 				  </table>
-				  <input type="submit" value="Save" id="" class=""/>
-				  </form>
+				<a href="showTrip.php">view My Trip </a> 
+				  
 			</div>
 		</div>
 		</div>
