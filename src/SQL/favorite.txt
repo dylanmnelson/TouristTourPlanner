@@ -4,7 +4,7 @@ CREATE TABLE TP_favorite (
 favouritesId number(10) NOT NULL ,
 userName VARCHAR2(100) NOT NULL,
 favorite VARCHAR2(100) NOT NULL ,
- PRIMARY KEY (userName)
+ PRIMARY KEY (favouritesId)
  ) ;
 
 create sequence favouritesId_seq 
