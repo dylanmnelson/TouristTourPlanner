@@ -89,7 +89,7 @@ session_start();
 								<ul class="dropdown-menu">
 									<li><a href="./itinerary.php">View</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="./organise1.php">Organise</a></li>
+									<li><a href="./organise.php">Organise</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -162,7 +162,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
 					</br>
-					<div><span class="center"><a href="organise1.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
+					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
 		
