@@ -43,8 +43,15 @@ require_once('saveToAttraction.php');
 							<span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand" href="#">Traveller</a>
+						<div class="mobileIcons">
+							<a href="./map.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map-marker"></i></a>
+							<a href="./itinerary.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map"></i></a>
+							<?php if (isset($_SESSION["firstname"])){
+								echo '<a href="./settings.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-cog"></i></a>';
+							} ?>
+						</div>
 					</div><!--/.navbar-header-->
-				<div id="navbar" class="navbar-collapse collapse">
+					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="./map.php"><i class="fa fa-fw fa-map-marker"></i>&nbsp;Map</a></li>
 							<li class="dropdown active">
