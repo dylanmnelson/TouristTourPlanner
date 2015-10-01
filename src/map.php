@@ -8,9 +8,9 @@ require_once('createTrip.php');
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Map - Traveller</title>
-        <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -21,8 +21,8 @@ require_once('createTrip.php');
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" href="css/main.min.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<link rel="stylesheet" href="css/main.min.css">
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script>
 		 function SaveToFavorite()
          {
@@ -142,10 +142,9 @@ require_once('createTrip.php');
 					</div>
 					<input type="hidden" id="dtp_input2" value="" /><br/>
                     <?php if (isset($_SESSION["username"])){
-                 echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
-				 } 
-				 ?> 
-				
+						echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
+					 } 
+					 ?> 
 				</div>
 			</div>
 				<div class="col-lg-12">
@@ -156,7 +155,6 @@ require_once('createTrip.php');
 			<div class="col-lg-12">
 				<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
 			</div><!-- /.col-lg-12 -->
-			<div id = "v1" >12</div>
 					
 			<div class="col-lg-12">
 				<div class="form-group">
@@ -164,7 +162,6 @@ require_once('createTrip.php');
 					<button type="submit" class="btn btn-main btn-block toMap" >Go to Map</button>
 				</div>
 			</div>
-		
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -172,12 +169,8 @@ require_once('createTrip.php');
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+		<!-- Custom JS -->
 		<script type="text/javascript" src="js/custom.min.js"></script>
-		
-		
-		
-		
-		
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 
 		<script type="text/javascript">
@@ -247,15 +240,9 @@ require_once('createTrip.php');
 
 			  var markers = [];
 			  
-			  
-			  
 			  // [START region_getplaces]
 			  // Listen for the event fired when the user selects a prediction and retrieve
 			  // more details for that place. 
-			  
-		
-
-			  
 			  
 			  searchBox.addListener('places_changed', function() {
 				  
@@ -304,11 +291,9 @@ require_once('createTrip.php');
 						content: contentString,
 						maxWidth: 800
 					  });
-
 					
 				  markers.push(itinerary_marker);
 				  
-
 				   google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
 						  if (status !== google.maps.places.PlacesServiceStatus.OK) {
@@ -332,24 +317,16 @@ require_once('createTrip.php');
 						  '</div>'+
 						  '</div>';
 						  
-						  
-						  
-						  
 						  infoWindow.setContent(contentString);
 						  infoWindow.open(map, itinerary_marker);
 						});
 					  });
-					  
-			
 					
-				   
 				 // google.maps.event.addListener(itinerary_marker, 'click', function() {
 				//	infowindow.open(map, this);
 				//
 				//	});
-
-				  	
-
+				
 				  if (place.geometry.viewport) {
 					// Only geocodes have viewport.
 					bounds.union(place.geometry.viewport);
@@ -373,7 +350,7 @@ require_once('createTrip.php');
 			
 
 		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 	</body>
 </html>

@@ -20,11 +20,10 @@ require_once('saveToAttraction.php');
 		<!--time picker-->
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<!-- Custom CSS -->
-        <link rel="stylesheet" href="css/main.min.css">
+		<link rel="stylesheet" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		
 	</head>
 	<body>
 		<!--[if lt IE 8]>

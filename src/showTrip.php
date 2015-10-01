@@ -9,7 +9,7 @@ require_once('saveToAttraction.php');
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Organise - Traveller</title>
+		<title>Your Trip - Traveller</title>
 		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->

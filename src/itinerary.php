@@ -6,9 +6,9 @@ session_start();
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Itinerary - Traveller</title>
-        <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -22,7 +22,7 @@ session_start();
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script>
 		function SaveTosession()
          {
@@ -123,14 +123,10 @@ echo "Hi: ".$_SESSION["firstname"];
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
 		<div class="mapWrapper hideInactive" id="map">
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
-				</div>
+			<!-- Button for mobile navigation -->
+			<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
+		</div>
 		<div class="newRightPanel showActive" id="panelForm">
-	
-		
-			
-			
 				<header class="codrops-header">
 					<h1>Melbourne<span>Create your unique itinerary</span></h1>
 					<div class="col-lg-12">
@@ -143,7 +139,6 @@ echo "Hi: ".$_SESSION["firstname"];
 						<a href="javascript:hotel()">Hotel</a>						
 					</nav>
 				</header>
-				<div id="v1">12</div>
 				<!-- Button for mobile navigation -->
 				<button type="submit" class="btn btn-main toMap">Go to Map</button>
 				<!-- Grid of place results. -->
@@ -155,9 +150,6 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div class="grid__item" id="div5"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="div6"><i class="fa fa-fw fa-image"></i></div>
 					<div class="grid__item" id="search_div1" name="search_div" style="display:none;"><i class="fa fa-fw fa-image"><img src="" id="search_img1" name="search_img"></img></i></div>
-					
-					
-								
 				</div>
 				<section class="codrops-top clearfix">
 					<div><span class="center"><a href="" class="animate" ><span><h6>Next Day</h6></span></a></span></div>
@@ -165,7 +157,6 @@ echo "Hi: ".$_SESSION["firstname"];
 					<div><span class="center"><a href="organise.php" class="animate" ><span><h5>Finish</h5></span></a></span></div>
 				</section>
 				
-		
 				<div id="drop-area" class="drop-area">
 					<div class="drop-area__content"><h6>Drag and Drop the item into the Box</h6>
 					
@@ -173,12 +164,8 @@ echo "Hi: ".$_SESSION["firstname"];
 						<div class="drop-area__item"><div class="dummy"><h5>Noon<h5></div></div>
 						<div class="drop-area__item"><div class="dummy"><h5>Afternoon<h5></div></div>
 						<div class="drop-area__item"><div class="dummy"><h5>Evening<h5></div></div>
-						
 					</div>
-					
-					
 				</div>
-			
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -248,13 +235,7 @@ echo "Hi: ".$_SESSION["firstname"];
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		
-	
-		
-
-		
-			 
-		
-			<script>
+		<script>
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
@@ -292,10 +273,6 @@ echo "Hi: ".$_SESSION["firstname"];
 
 			 var service = new google.maps.places.PlacesService(map);
 			 
-			
-			 
-			
-
 			  // Bias the SearchBox results towards current map's viewport.
 			  map.addListener('bounds_changed', function() {
 				searchBox.setBounds(map.getBounds());
@@ -303,16 +280,10 @@ echo "Hi: ".$_SESSION["firstname"];
 
 			  var markers = [];
 			  
-			  
-			  
 			  // [START region_getplaces]
 			  // Listen for the event fired when the user selects a prediction and retrieve
 			  // more details for that place. 
-			  
-		
-
-			  
-			  
+			
 			  searchBox.addListener('places_changed', function() {
 				  
 				var places = searchBox.getPlaces();
@@ -360,10 +331,8 @@ echo "Hi: ".$_SESSION["firstname"];
 						content: contentString,
 						maxWidth: 800
 					  });
-
-					
+					  
 				  markers.push(itinerary_marker);
-				  
 				  
 				  google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
@@ -422,22 +391,15 @@ echo "Hi: ".$_SESSION["firstname"];
 						  '</div>'+
 						  '</div>';
 						  
-						  
-						  
 						  infoWindow.setContent(contentString);
 						  infoWindow.open(map, itinerary_marker);
 						});
 					  });
 					  
-			
-					
-				   
 				 // google.maps.event.addListener(itinerary_marker, 'click', function() {
 				//	infowindow.open(map, this);
 				//
 				//	});
-
-				  	
 
 				  if (place.geometry.viewport) {
 					// Only geocodes have viewport.
@@ -474,14 +436,11 @@ echo "Hi: ".$_SESSION["firstname"];
 			function hotel(){
 				document.getElementById("pac-input").value="melbourne hotel\r";
 				}
-
-
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 		<!-- Custom js -->
 		<script type="text/javascript" src="js/custom.min.js"></script>
 
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-		
 	</body>
 </html>
