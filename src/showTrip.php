@@ -23,7 +23,7 @@ require_once('saveToAttraction.php');
 		<!--jquerymobile for slider-->
 	
 		<!-- Custom CSS -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>

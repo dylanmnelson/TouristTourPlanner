@@ -21,7 +21,7 @@ require_once('createTrip.php');
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.min.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script>
 		 function SaveToFavorite()
@@ -165,7 +165,7 @@ require_once('createTrip.php');
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="js/custom.min.js"></script>
 		
 		
 		

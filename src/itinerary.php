@@ -18,7 +18,7 @@ session_start();
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/main.min.css">
 		<meta name="keywords" content="drag and drop, interaction, inspiration, web design, ui" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bottom-area.css" />
@@ -479,7 +479,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 		<!-- Custom js -->
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="js/custom.min.js"></script>
 
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 		

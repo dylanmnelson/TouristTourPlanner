@@ -20,7 +20,7 @@ require_once('saveToAttraction.php');
 		<!--time picker-->
 		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 		<!-- Custom CSS -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -277,7 +277,7 @@ echo ' <form action="?" method="post">';
 		<script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="js/custom.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 		
 		<script type="text/javascript">
