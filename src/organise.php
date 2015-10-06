@@ -72,7 +72,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		echo	'<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="favourites.php">View Favourites</a></li>
-									<li><a href="#">Saved Routes</a></li>
+									<li><a href="showTrip.php">Saved Routes</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Account</li>
 									<li><a href="settings.php">Settings</a></li>
@@ -265,7 +265,7 @@ echo ' <form action="?" method="post">';
 						</td>
 					  </tr> ';
 } 				 
-       echo' <tr>  <td> <input class="controls" type="submit" value="Save My Trip" /></a></td></tr>
+       echo' <tr>  <td> <input class="btn btn-main btn-block" type="submit" value="Save My Trip" /></a></td></tr>
 </form>';
  ?>
 				  </table>
