@@ -6,6 +6,7 @@ restaurantAddress VARCHAR2(100) NOT NULL ,
 StartTime timestamp NOT NULL,
 duration number(10) NOT NULL,  
  PRIMARY KEY (resturantId)
+ Foreign key (tripID) REFERENCES TP_Trip(tripID)
  ) ;
 
 create sequence resturantId_seq 
