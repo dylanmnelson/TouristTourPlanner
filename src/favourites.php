@@ -19,7 +19,7 @@ session_start();
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/main.min.css">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
 	<body>
@@ -39,6 +39,13 @@ session_start();
 							<span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand" href="#">Traveller</a>
+						<div class="mobileIcons">
+							<a href="./map.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map-marker"></i></a>
+							<a href="./itinerary.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map"></i></a>
+							<?php if (isset($_SESSION["firstname"])){
+								echo '<a href="./settings.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-cog"></i></a>';
+							} ?>
+						</div>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -90,6 +97,6 @@ echo "Hi: ".$_SESSION["firstname"];
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>           
+		<script type="text/javascript" src="js/custom.min.js"></script>           
 	</body>
 </html>

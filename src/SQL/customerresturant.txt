@@ -1,17 +1,18 @@
-DROP TABLE TP_cusresturant;
+﻿DROP TABLE TP_cusresturant;
 CREATE TABLE TP_cusresturant (
 resturantId number(10) NOT NULL ,
 tripID number(10) NOT NULL, 
 restaurantAddress VARCHAR2(100) NOT NULL ,
+
 StartTime timestamp NOT NULL,
 duration number(10) NOT NULL,  
  PRIMARY KEY (resturantId)
- Foreign key (tripID) REFERENCES TP_Trip(tripID)
+ 
  ) ;
+
+commit;
 
 create sequence resturantId_seq 
 start with 1 
 increment by 1 
 nomaxvalue;
-
-commit;

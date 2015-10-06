@@ -1,11 +1,11 @@
 DROP TABLE TP_CustomerTrip;
 
 CREATE TABLE TP_CustomerTrip (
- customerTripID number(38) NOT NULL,
- userName VARCHAR2(100) NOT NULL,
- tripID number(38) NOT NULL , 
- PRIMARY KEY (customerTripID),
- Foreign key (tripID) REFERENCES TP_Trip(tripID)
+customerTripID number(38) NOT NULL,
+userName VARCHAR2(100) NOT NULL,
+tripID number(38) NOT NULL , 
+PRIMARY KEY (customerTripID),
+Foreign key (customerTripID) REFERENCES TP_trips(tripID)
  ) ;
 
 drop sequence customerTripID_seq;

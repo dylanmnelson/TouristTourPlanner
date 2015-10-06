@@ -156,6 +156,7 @@ $('.toMap').click(function() {
 	$('#panelForm').addClass('hideInactive');
 	$('#map').removeClass('hideInactive');
 	$('#map').addClass('showActive');
+	$('#btnShowForm').show();
 	
 	//Resetting maps
 	var center = map.getCenter();
@@ -171,6 +172,7 @@ $('.btnBackToForm').click(function() {
 	$('#panelForm').addClass('showActive');
 	$('#map').removeClass('showActive');
 	$('#map').addClass('hideInactive');
+	$('#btnShowForm').hide();
 });
 
 google.maps.event.addDomListener(window, 'load', initialize);

@@ -1,15 +1,16 @@
 <?php 
 session_start();
 require_once('createTrip.php');
+
  ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Map - Traveller</title>
-        <meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
+		<meta name="description" content="Search for attractions, save your favourite places, and create an itinerary for your perfect trip.">
 		<meta name="keywords" content="traveller, travel, tour, tourist, planner, map, itinerary, trip">
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" />
@@ -20,15 +21,17 @@ require_once('createTrip.php');
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<script type="text/javascript">
-		function SaveToFavorite(str)
+		<link rel="stylesheet" href="css/main.min.css">
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script>
+		 function SaveToFavorite()
          {
-			document.getElementById("pac-input").innerphp = "wrong"; 
+			var str1 = document.getElementById("user").value;
+			var str2 =document.getElementById("pac-input").value; 
+			var str = str1 + "1" +str2;
            if (str.length==0)
            {
-            document.getElementById("pac-input").innerphp="";
+            document.getElementById("v1").innerHTML="";
            return;
           }
             if (window.XMLHttpRequest)
@@ -43,12 +46,12 @@ require_once('createTrip.php');
                {
            if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-              document.getElementById("pac-input").innerphp=xmlhttp.responseText;
+              document.getElementById("v1").innerHTML=xmlhttp.responseText;
    
               }
             }
-           xmlhttp.open("GET","favorite.php?value="+str,true);
-         xmlhttp.send();
+           xmlhttp.open("GET","favorite.php?q="+str,true);
+           xmlhttp.send();
             }
 		</script>
 	</head>
@@ -69,6 +72,13 @@ require_once('createTrip.php');
 							<span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand" href="#">Traveller</a>
+						<div class="mobileIcons">
+							<a href="./map.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map-marker"></i></a>
+							<a href="./itinerary.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-map"></i></a>
+							<?php if (isset($_SESSION["firstname"])){
+								echo '<a href="./settings.php" class="navbar-icon"><i class="fa fa-2x fa-fw fa-cog"></i></a>';
+							} ?>
+						</div>
 					</div><!--/.navbar-header-->
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -83,6 +93,7 @@ require_once('createTrip.php');
 							</li>
 						</ul>
 						<!-- Show the username, settings and favourites buttons for logged in users. -->
+					<input type="hidden" id= "user" value="<?php echo $_SESSION["username"];?>" />
 							<?php if (isset($_SESSION["firstname"])){
                             echo '<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
@@ -108,10 +119,9 @@ require_once('createTrip.php');
 				</div>
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
-		<div class="mapWrapper hideInactive" id="map">
-				<!-- Button for mobile navigation -->
-				<button type="submit" class="btn btn-main btnBackToForm" >Back</button>
-				</div>
+		<div class="mapWrapper hideInactive" id="map"></div>
+		<!-- Button for mobile navigation -->
+		<button type="submit" class="btn btn-main btnBackToForm" id="btnShowForm">Back</button>
 		<div class="rightPanel showActive" id="panelForm">
 			<div class="routeSearch">
 				<!-- Draw route between 2 places -->
@@ -132,26 +142,26 @@ require_once('createTrip.php');
 					</div>
 					<input type="hidden" id="dtp_input2" value="" /><br/>
                     <?php if (isset($_SESSION["username"])){
-                 echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
-				 } 
-				 ?> 
-				
+						echo  '<input type="hidden" id="dtp_input1" name="username" value="$_SESSION["username"]" /><br/>' ; 
+					 } 
+					 ?> 
 				</div>
-				
-					
-				
 			</div>
-			
-				<div class="col-lg-12">	
-				<input type="submit"  id="btnRouteSearch" class="controls" value="Let's Go" />
-			</div>
+				<div class="col-lg-12">
+					<input type="submit"  id="btnRouteSearch" class="btn btn-main btn-block" value="Let's Go" />
+				</div>
 			</form>
 			
 			<div class="col-lg-12">
-						<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
-					</div><!-- /.col-lg-12 -->
-			<!--class="btn btn-main btn-block toMap"-->
-		
+				<input id="pac-input" class="controls" name="favorite" type="text" placeholder="Search Your favorite Place">
+			</div><!-- /.col-lg-12 -->
+					
+			<div class="col-lg-12">
+				<div class="form-group">
+					<!-- Button for mobile navigation -->
+					<button type="submit" class="btn btn-main btn-block toMap" >Go to Map</button>
+				</div>
+			</div>
 		</div>
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
@@ -159,10 +169,8 @@ require_once('createTrip.php');
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-		
-		
-		
+		<!-- Custom JS -->
+		<script type="text/javascript" src="js/custom.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 
 		<script type="text/javascript">
@@ -200,15 +208,14 @@ require_once('createTrip.php');
 		</script>          
 
 <script>
-
-
+	var map;
 			
 			// This example adds a search box to a map, using the Google Place Autocomplete
 			// feature. People can enter geographical searches. The search box will return a
 			// pick list containing a mix of places and predicted search terms.
 
 			function initAutocomplete() {
-			  var map = new google.maps.Map(document.getElementById('map'), {
+			  map = new google.maps.Map(document.getElementById('map'), {
 				 center: new google.maps.LatLng(-37.8136, 144.9631),
 				zoom: 13,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -233,15 +240,9 @@ require_once('createTrip.php');
 
 			  var markers = [];
 			  
-			  
-			  
 			  // [START region_getplaces]
 			  // Listen for the event fired when the user selects a prediction and retrieve
 			  // more details for that place. 
-			  
-		
-
-			  
 			  
 			  searchBox.addListener('places_changed', function() {
 				  
@@ -290,21 +291,19 @@ require_once('createTrip.php');
 						content: contentString,
 						maxWidth: 800
 					  });
-
 					
 				  markers.push(itinerary_marker);
 				  
-
 				   google.maps.event.addListener(itinerary_marker, 'click', function() {
 						service.getDetails(place, function(result, status) {
 						  if (status !== google.maps.places.PlacesServiceStatus.OK) {
 							console.error(status);
 							return;
 						  }
-						  var favorite = document.getElementById("pac-input").value;
+						  
 						   contentString = '<div id="content">'+
 						  '<h1 id="firstHeading" class="firstHeading">'+result.name+'</h1>'+
-						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite(favorite);">'+"Like"+'</button>'+
+						  '<div class="form-group">'+'<button type="submit" id="likePlace" onclick="SaveToFavorite()">'+"Like"+'</button>'+
 						  '</div>'+
 						  '<div id="bodyContent">'+
 						  '<div>'+'<h4>'+result.formatted_address+'</h4>'+'</div>'+
@@ -318,24 +317,16 @@ require_once('createTrip.php');
 						  '</div>'+
 						  '</div>';
 						  
-						  
-						  
-						  
 						  infoWindow.setContent(contentString);
 						  infoWindow.open(map, itinerary_marker);
 						});
 					  });
-					  
-			
 					
-				   
 				 // google.maps.event.addListener(itinerary_marker, 'click', function() {
 				//	infowindow.open(map, this);
 				//
 				//	});
-
-				  	
-
+				
 				  if (place.geometry.viewport) {
 					// Only geocodes have viewport.
 					bounds.union(place.geometry.viewport);
@@ -350,24 +341,16 @@ require_once('createTrip.php');
 				  
 				});
 				
-				
-							
-							
-						
-				
-				
-				
-				
 				map.fitBounds(bounds);
 											
 						
 			  });
 			  // [END region_getplaces]
 			}
-
+			
 
 		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqZdfV4eQOC1zuTHO0AKnuN1GRkkbo0o&libraries=places&callback=initAutocomplete" async defer></script>
 	</body>
 </html>
