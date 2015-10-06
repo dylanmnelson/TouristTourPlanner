@@ -265,7 +265,7 @@ echo ' <form action="?" method="post">';
 						</td>
 					  </tr> ';
 } 				 
-       echo' <tr>  <td> <input class="controls" type="submit" value="Save My Trip" /></a></td></tr>
+       echo' <tr>  <td> <input class="btn btn-main btn-block" type="submit" value="Save My Trip" /></a></td></tr>
 </form>';
  ?>
 				  </table>
