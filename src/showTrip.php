@@ -91,7 +91,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				</div>
 			</nav> <!-- /navbar -->
 		</div><!--/.header-->
-		
+		<div>
 		<?php
 		$dbuser = "jyapi";
              $dbpass = "15982749273"; 
@@ -115,20 +115,22 @@ echo "Hi: ".$_SESSION["firstname"];
          oci_execute($stmt);
 		 
 		 while(oci_fetch_array($stmt))  {
-               $stratTime = oci_result($stmt,"STRATTIME");
+               $startTime = oci_result($stmt,"STRATTIME");
                $endTime = oci_result($stmt,"ENDTIME");
 		 }
+		 echo '<div>';
+echo "<h1> Your Trips</h1>";
 		 echo "Hi ";
 		 echo '<strong>';
 		 echo $UserName;
 		 echo '</strong>';
 		 echo '</br>';
-		 echo "Your Melbourne trip strats from ";
-		 echo $stratTime;
+		 echo "Your Melbourne trip starts from ";
+		 echo $startTime;
 		 echo " and end at ";
 		 echo $endTime;
 		 echo '</br>';
-		 echo "Attractions of this trip :";
+		 echo "<h2>Attractions of this trip <h2>";
 		 echo '</br>';
 		 
 		 ////////////////////////////////////////
@@ -141,10 +143,29 @@ echo "Hi: ".$_SESSION["firstname"];
            }
          oci_execute($stmt1);
 		 
+		 // placed outside while loop to see it without google key to add attractions 
+		 
+		 			  echo ' <div class="table-responsive">';
+  echo '<table class="table">';
+   echo '<th> <td> Place</td> ';
+   echo '<td> Start Time</td>';
+   echo '<td> Duration</td>';
+   echo '</th>';
+   echo '<tr></tr>';
+ echo' </table>';
+echo '</div>';
 		 while(oci_fetch_array($stmt1))  {
                $attractionAddress = oci_result($stmt1,"ATTRACTIONADDRESS");
                $StartTime = oci_result($stmt1,"STARTTIME");
 			   $duration = oci_result($stmt1,"DURATION");
+			   
+			  echo ' <div class="table-responsive">';
+  echo '<table class="table">';
+   echo '<th> <td> "Place"</td> ';
+   echo '<td> "Start Time"</td>';
+   echo '<td> "Duration"</td>';
+ echo' </table>';
+echo '</div>';
 			   echo $attractionAddress;
 			   echo "&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;";
 			   echo "This trip from ";
@@ -189,7 +210,7 @@ echo "Hi: ".$_SESSION["firstname"];
 		 
 		 while(oci_fetch_array($stmt3))  {
                $hotelAddress = oci_result($stmt3,"HOTELADDRESS");
-               $StartTime = oci_result($stmt3,"STARTTIME");
+               $StartTime = oci_result($stmt3,"STRATTIME");
 			   $duration = oci_result($stmt3,"DURATION");
 			  
                 echo "Your will go to hotel ";
@@ -199,12 +220,13 @@ echo "Hi: ".$_SESSION["firstname"];
 			   echo " , and you will spend ";
 			   echo $duration;
 			   echo " hours.";
-			   echo '</br>';
+			   echo '</br>';  
 		 }
 		 
 		
 		?>
-		
+        </div>
+		</div>
 		
 		
 		
