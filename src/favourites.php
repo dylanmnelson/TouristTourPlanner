@@ -89,38 +89,40 @@ echo "Hi: ".$_SESSION["firstname"];
 			</nav><!-- /navbar -->
 		</div><!--/.header-->
 		<!-- Favourites page html starts here -->
-		<h1> Saved Favourites </h1>
-		<?php
-        $dbuser = "jyapi";
-             $dbpass = "15982749273"; 
-             $db = "SSID";
-             $connect = OCILogon($dbuser, $dbpass, $db);
-           if (!$connect) 
-            {
-	     echo "An error occurred connecting to the database";
-	     exit;
-               }
-			   
-			   $UserName = $_SESSION["username"];
-			    $query = "SELECT * FROM TP_favorite WHERE userName = '$UserName'";
-				$stmt = oci_parse($connect,$query);
-				if(!$stmt)  {
-        echo "An error occurred in parsing the sql string.\n"; 
-           exit; 
-           }
-         oci_execute($stmt);
-		 echo '<h1>';
-		 echo "Favorite places";
-		 echo '</h1>';
-		 echo '<table>';
-		  while(oci_fetch_array($stmt))  {
-               $favorite = oci_result($stmt,"FAVORITE");
-			   echo '<tr><td>';
-              echo $favorite;
-			  echo '</td></tr>';
-		 }
-		 echo '</table>';
-			   ?>
+		<div class="contentWrapper">
+			<h1> Saved Favourites </h1>
+			<?php
+			$dbuser = "jyapi";
+				 $dbpass = "15982749273"; 
+				 $db = "SSID";
+				 $connect = OCILogon($dbuser, $dbpass, $db);
+			   if (!$connect) 
+				{
+			 echo "An error occurred connecting to the database";
+			 exit;
+				   }
+				   
+				   $UserName = $_SESSION["username"];
+					$query = "SELECT * FROM TP_favorite WHERE userName = '$UserName'";
+					$stmt = oci_parse($connect,$query);
+					if(!$stmt)  {
+			echo "An error occurred in parsing the sql string.\n"; 
+			   exit; 
+			   }
+			 oci_execute($stmt);
+			 echo '<h2>';
+			 echo "Favorite places";
+			 echo '</h2>';
+			 echo '<table>';
+			  while(oci_fetch_array($stmt))  {
+				   $favorite = oci_result($stmt,"FAVORITE");
+				   echo '<tr><td>';
+				  echo $favorite;
+				  echo '</td></tr>';
+			 }
+			 echo '</table>';
+				   ?>
+		</div>
 		<!-- /End favourites page html -->
 		<!--END body html content-->
 		<!--jQuery with offline backup if needed-->
