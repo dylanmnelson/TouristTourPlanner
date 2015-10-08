@@ -142,39 +142,26 @@ echo "<h1> Your Trips</h1>";
            exit; 
            }
          oci_execute($stmt1);
-		 
-		 // placed outside while loop to see it without google key to add attractions 
-		 
-		 			  echo ' <div class="table-responsive">';
+		 			   
+			  echo ' <div class="table-responsive">';
   echo '<table class="table">';
    echo '<th> <td> Place</td> ';
    echo '<td> Start Time</td>';
    echo '<td> Duration</td>';
-   echo '</th>';
-   echo '<tr></tr>';
- echo' </table>';
-echo '</div>';
+
+
 		 while(oci_fetch_array($stmt1))  {
                $attractionAddress = oci_result($stmt1,"ATTRACTIONADDRESS");
                $StartTime = oci_result($stmt1,"STARTTIME");
 			   $duration = oci_result($stmt1,"DURATION");
-			   
-			  echo ' <div class="table-responsive">';
-  echo '<table class="table">';
-   echo '<th> <td> "Place"</td> ';
-   echo '<td> "Start Time"</td>';
-   echo '<td> "Duration"</td>';
- echo' </table>';
-echo '</div>';
-			   echo $attractionAddress;
-			   echo "&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;";
-			   echo "This trip from ";
-			   echo $StartTime;
-			   echo " , and you will spend ";
-			   echo $duration;
-			   echo " hours.";
-			   echo '</br>';
+
+			   echo '<tr> <td>'+  $attractionAddress +'</td>';
+			   echo '<td>'+$StartTime + '</td>';
+			   echo'<td>'+ $duration+' hours. <td>';
+			   echo '</tr>';
 		 }
+		  echo' </table>';
+echo '</div>';
 		 //////////////////////////////////////////////////
 		 $query2 = "SELECT * FROM TP_cusresturant WHERE tripID = '$tripID'";
 		$stmt2 = oci_parse($connect,$query2);
