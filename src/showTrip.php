@@ -91,7 +91,7 @@ echo "Hi: ".$_SESSION["firstname"];
 				</div>
 			</nav> <!-- /navbar -->
 		</div><!--/.header-->
-		<div>
+		<div class="contentWrapper">
 		<?php
 		$dbuser = "jyapi";
              $dbpass = "15982749273"; 
@@ -145,9 +145,10 @@ echo "<h1> Your Trips</h1>";
 		 			   
 			  echo ' <div class="table-responsive">';
   echo '<table class="table">';
-   echo '<th> <td> Place</td> ';
-   echo '<td> Start Time</td>';
-   echo '<td> Duration</td>';
+   echo '<tr> <th> Location</th> ';
+   echo '<th> Start Time</th>';
+   echo '<th> Duration</th>';
+   echo '</tr>';
 
 
 		 while(oci_fetch_array($stmt1))  {

@@ -11,7 +11,7 @@ if (!$connect)
 $UserName=$_SESSION["username"];
 $tripID = $_SESSION["tripID"];
 
-$StartTimeTemp = date("yy-mm-dd", time());
+$StartTimeTemp = date("y-m-d H:i:s", time());
 $Duration = "2";
 $sql1 = "UPDATE TP_cusAttraction SET StartTime = '$StartTimeTemp' WHERE tripID= '$tripID '";
 			$stmt1 = oci_parse($connect, $sql1);
