@@ -155,9 +155,15 @@ echo "<h1> Your Trips</h1>";
                $StartTime = oci_result($stmt1,"STARTTIME");
 			   $duration = oci_result($stmt1,"DURATION");
 
-			   echo '<tr> <td>'+  $attractionAddress +'</td>';
-			   echo '<td>'+$StartTime + '</td>';
-			   echo'<td>'+ $duration+' hours. <td>';
+			   echo '<tr> <td>';
+			   echo  $attractionAddress ;
+			   echo'</td>';
+			   echo '<td>';
+			   echo $StartTime ;
+			   echo '</td>';
+			   echo'<td>';
+			   echo  $duration;
+				echo 'hours. <td>';
 			   echo '</tr>';
 		 }
 		  echo' </table>';
